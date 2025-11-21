@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Send, Phone, Video, MoreVertical, CheckCheck } from 'lucide-react';
+import { Send, Phone, Video, MoreVertical, CheckCheck, Bot } from 'lucide-react';
 
 const ChatDemo = () => {
     const [messages, setMessages] = useState([
@@ -44,8 +44,6 @@ const ChatDemo = () => {
     const runSimulation = async () => {
         setSimulationStarted(true);
         setMessages([{ id: 1, text: "Olá! Gostaria de agendar uma consulta.", sender: 'user', time: '10:00' }]);
-
-        let currentDelay = 0;
 
         for (let step of script) {
             if (step.userText) {
@@ -165,7 +163,7 @@ const ChatDemo = () => {
                                 </div>
                                 <div style={{ flex: 1 }}>
                                     <div style={{ fontSize: '0.9rem', fontWeight: 600 }}>Clínica Dr. Maurício</div>
-                                    <div style={{ fontSize: '0.7rem', color: '#8696a0' }}>online</div>
+                                    <div style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.8)' }}>online</div>
                                 </div>
                                 <Video size={20} />
                                 <Phone size={20} />
@@ -211,8 +209,8 @@ const ChatDemo = () => {
                                                 color: '#111b21',
                                                 padding: '0.5rem 0.8rem',
                                                 borderRadius: '0.5rem',
-                                                borderTopRightRadius: msg.sender === 'user' ? '0.5rem' : '0.5rem',
-                                                borderTopLeftRadius: msg.sender === 'bot' ? '0.5rem' : '0.5rem',
+                                                borderTopRightRadius: msg.sender === 'user' ? 0 : '0.5rem',
+                                                borderTopLeftRadius: msg.sender === 'bot' ? 0 : '0.5rem',
                                                 maxWidth: '80%',
                                                 boxShadow: '0 1px 0.5px rgba(0,0,0,0.13)',
                                                 fontSize: '0.9rem',
@@ -263,17 +261,17 @@ const ChatDemo = () => {
                             {/* Input Area */}
                             <div style={{
                                 padding: '0.5rem',
-                                background: '#202c33',
+                                background: '#f0f2f5',
                                 display: 'flex',
                                 alignItems: 'center',
                                 gap: '0.5rem'
                             }}>
                                 <div style={{
                                     flex: 1,
-                                    background: '#2a3942',
+                                    background: 'white',
                                     borderRadius: '1.5rem',
                                     padding: '0.6rem 1rem',
-                                    color: '#8696a0',
+                                    color: '#54656f',
                                     fontSize: '0.9rem'
                                 }}>
                                     Digite uma mensagem
@@ -294,12 +292,6 @@ const ChatDemo = () => {
                     </div>
                 </div>
             </div>
-            <style>{`
-        @keyframes typing {
-          0%, 80%, 100% { transform: scale(0); }
-          40% { transform: scale(1); }
-        }
-      `}</style>
         </section>
     );
 };
