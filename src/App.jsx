@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Hero from './components/Hero';
 import ChatDemo from './components/ChatDemo';
 import FlowDiagram from './components/FlowDiagram';
+import Solutions from './components/Solutions';
 import CRMModal from './components/CRMModal';
 import ROICalculator from './components/ROICalculator';
 import Investment from './components/Investment';
@@ -40,6 +41,7 @@ function App() {
         <Hero />
         <ChatDemo />
         <FlowDiagram />
+        <Solutions />
 
         {/* CRM Teaser Section */}
         <section className="section" style={{ textAlign: 'center' }}>
@@ -53,12 +55,12 @@ function App() {
               overflow: 'hidden'
             }}>
               <div style={{ position: 'relative', zIndex: 1 }}>
-                <h2>O Coração da Sua Operação</h2>
+                <h2>Gestão Centralizada de Leads e Clientes</h2>
                 <p style={{ maxWidth: '600px', margin: '0 auto 2rem auto' }}>
-                  Um CRM completo, desenhado para times de alta performance. Visualize seu pipeline, gerencie conversas e acompanhe métricas em tempo real.
+                  Acompanhe cada lead pelo pipeline, gerencie conversas de todos os canais em um inbox único e visualize métricas de performance em tempo real.
                 </p>
                 <button className="btn btn-primary" onClick={() => setIsCRMOpen(true)}>
-                  Explorar o CRM Interativo
+                  Explorar o CRM
                 </button>
               </div>
             </div>
