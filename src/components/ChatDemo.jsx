@@ -91,14 +91,14 @@ const ChatDemo = () => {
                         Veja como nossa IA interage naturalmente via WhatsApp. Ela entende contexto, negocia horários, tira dúvidas e confirma agendamentos integrados diretamente ao seu sistema.
                     </p>
 
-                    {!simulationStarted && (
-                        <button className="btn btn-primary" onClick={runSimulation} style={{ marginTop: '2rem' }}>
-                            Iniciar Simulação
-                        </button>
-                    )}
                 </div>
 
-                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '4rem', flexWrap: 'wrap' }}>
+                <div style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+                    gap: '2.5rem',
+                    alignItems: 'start'
+                }}>
                     {/* Features List */}
                     <div style={{ flex: 1, minWidth: '300px' }}>
                         {[
@@ -130,14 +130,15 @@ const ChatDemo = () => {
 
                     {/* Phone Mockup */}
                     <div style={{
-                        width: '320px',
-                        height: '640px',
+                        width: 'min(100%, 360px)',
+                        height: 'clamp(520px, 75vh, 640px)',
                         background: '#000',
                         borderRadius: '40px',
-                        padding: '12px',
+                        padding: 'clamp(10px, 3vw, 14px)',
                         boxShadow: '0 20px 50px -10px rgba(0,0,0,0.5)',
                         border: '4px solid #333',
-                        position: 'relative'
+                        position: 'relative',
+                        justifySelf: 'center'
                     }}>
                         {/* Screen */}
                         <div style={{
@@ -289,6 +290,15 @@ const ChatDemo = () => {
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div style={{ display: 'flex', justifyContent: 'center' }}>
+                        <button
+                            className="btn btn-primary"
+                            onClick={runSimulation}
+                            style={{ marginTop: '1rem', width: '100%', maxWidth: '360px', justifyContent: 'center' }}
+                        >
+                            {simulationStarted ? 'Reiniciar Simulação' : 'Iniciar Simulação'}
+                        </button>
                     </div>
                 </div>
             </div>

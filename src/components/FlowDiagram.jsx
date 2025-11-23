@@ -18,7 +18,7 @@ const FlowDiagram = () => {
                     <p>Do clique à venda, nossa IA orquestra tudo.</p>
                 </div>
 
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '2rem', flexWrap: 'wrap' }}>
+                <div className="flow-steps">
                     {steps.map((step, index) => (
                         <React.Fragment key={index}>
                             <motion.div
@@ -31,7 +31,8 @@ const FlowDiagram = () => {
                                     alignItems: 'center',
                                     gap: '1rem',
                                     position: 'relative',
-                                    zIndex: 1
+                                    zIndex: 1,
+                                    textAlign: 'center'
                                 }}
                             >
                                 <div style={{
@@ -52,16 +53,11 @@ const FlowDiagram = () => {
 
                             {index < steps.length - 1 && (
                                 <motion.div
+                                    className="flow-connector"
                                     initial={{ width: 0, opacity: 0 }}
-                                    whileInView={{ width: '100px', opacity: 1 }}
+                                    whileInView={{ width: '100%', opacity: 1 }}
                                     transition={{ delay: index * 0.2 + 0.1, duration: 0.5 }}
-                                    style={{
-                                        height: '2px',
-                                        background: 'linear-gradient(90deg, transparent, var(--color-primary), transparent)',
-                                        flex: 1,
-                                        maxWidth: '100px',
-                                        minWidth: '50px'
-                                    }}
+                                    aria-hidden
                                 />
                             )}
                         </React.Fragment>
