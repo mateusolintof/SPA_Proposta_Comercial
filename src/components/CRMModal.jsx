@@ -41,9 +41,9 @@ const CRMModal = ({ isOpen, onClose }) => {
                         }}
                     >
                         {/* Sidebar */}
-                        <div style={{ width: '240px', background: '#111827', color: 'white', display: 'flex', flexDirection: 'column' }}>
+                        <div style={{ width: '240px', background: 'var(--color-primary)', color: 'white', display: 'flex', flexDirection: 'column' }}>
                             <div style={{ padding: '1.5rem', borderBottom: '1px solid #374151' }}>
-                                <div style={{ fontWeight: 700, fontSize: '1.25rem', color: '#0ea5e9' }}>ALMA CRM</div>
+                                <div style={{ fontWeight: 700, fontSize: '1.25rem', color: 'white' }}>convert <span style={{ fontWeight: 800 }}>A.I</span> CRM</div>
                             </div>
 
                             <nav style={{ padding: '1rem', flex: 1 }}>
@@ -62,8 +62,8 @@ const CRMModal = ({ isOpen, onClose }) => {
                                             width: '100%',
                                             padding: '0.75rem 1rem',
                                             borderRadius: '0.5rem',
-                                            background: activeTab === item.id ? 'rgba(14, 165, 233, 0.1)' : 'transparent',
-                                            color: activeTab === item.id ? '#0ea5e9' : '#9ca3af',
+                                            background: activeTab === item.id ? 'rgba(255, 255, 255, 0.1)' : 'transparent',
+                                            color: activeTab === item.id ? 'white' : '#9ca3af',
                                             border: 'none',
                                             marginBottom: '0.5rem',
                                             textAlign: 'left'

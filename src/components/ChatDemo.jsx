@@ -152,7 +152,7 @@ const ChatDemo = () => {
                             {/* Header */}
                             <div style={{
                                 padding: '1rem',
-                                background: '#00a884',
+                                background: 'var(--color-primary)', // Dark Green
                                 display: 'flex',
                                 alignItems: 'center',
                                 gap: '0.5rem',
@@ -205,7 +205,7 @@ const ChatDemo = () => {
                                             }}
                                         >
                                             <div style={{
-                                                background: msg.sender === 'user' ? '#d9fdd3' : 'white',
+                                                background: msg.sender === 'user' ? 'var(--color-success)' : 'white', // Light Green for User
                                                 color: '#111b21',
                                                 padding: '0.5rem 0.8rem',
                                                 borderRadius: '0.5rem',
@@ -279,7 +279,7 @@ const ChatDemo = () => {
                                 <div style={{
                                     width: '40px',
                                     height: '40px',
-                                    background: '#00a884',
+                                    background: 'var(--color-primary)',
                                     borderRadius: '50%',
                                     display: 'flex',
                                     alignItems: 'center',

@@ -24,7 +24,7 @@ function App() {
         borderBottom: '1px solid rgba(0,0,0,0.05)'
       }}>
         <div className="container" style={{ height: '70px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-          <div style={{ fontWeight: 700, fontSize: '1.25rem', color: 'var(--color-text)' }}>ALMA<span style={{ color: 'var(--color-primary)' }}>.IA</span></div>
+          <div style={{ fontWeight: 800, fontSize: '1.5rem', fontFamily: 'var(--font-display)', color: 'var(--color-primary)', letterSpacing: '-0.02em' }}>convert <span style={{ fontWeight: 800 }}>A.I</span></div>
           <button
             className="btn btn-outline"
             onClick={() => setIsCRMOpen(true)}
@@ -71,7 +71,7 @@ function App() {
 
       <footer style={{ padding: '4rem 0', borderTop: '1px solid var(--color-border)', textAlign: 'center', color: 'var(--color-text-muted)' }}>
         <div className="container">
-          <p>&copy; 2024 ALMA.IA - Todos os direitos reservados.</p>
+          <p>&copy; 2024 convert A.I - Todos os direitos reservados.</p>
         </div>
       </footer>
 
