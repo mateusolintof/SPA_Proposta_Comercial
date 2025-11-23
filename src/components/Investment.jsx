@@ -3,12 +3,14 @@ import { Check } from 'lucide-react';
 
 const Investment = () => {
     const deliverables = [
-        "Configuração de Agentes de IA (Vendas & Suporte)",
-        "Setup do CRM Personalizado (Pipelines & Automações)",
-        "Integração com WhatsApp Business API",
-        "Dashboard de Métricas em Tempo Real",
-        "Treinamento da Equipe Comercial",
-        "Suporte Prioritário"
+        "Agente de Atendimento Inteligente (WhatsApp 24/7)",
+        "Agente de Follow-up Automatizado",
+        "Agente Pós-vendas (NPS, CSAT e Fluxos de Recompra)",
+        "CRM Personalizado com Pipelines de Vendas",
+        "Inbox Unificado (conversas centralizadas)",
+        "Dashboard de Performance em Tempo Real",
+        "Treinamento da Equipe",
+        "Suporte Técnico Contínuo"
     ];
 
     return (

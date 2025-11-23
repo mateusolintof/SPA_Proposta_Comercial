@@ -29,11 +29,11 @@ const ROICalculator = () => {
                             color: '#f59e0b'
                         }}>
                             <Calculator size={16} />
-                            <span style={{ fontSize: '0.875rem', fontWeight: 600 }}>Calculadora de ROI</span>
+                            <span style={{ fontSize: '0.875rem', fontWeight: 600 }}>Simulador</span>
                         </div>
-                        <h2>Quanto você está deixando na mesa?</h2>
+                        <h2>Simule o Impacto na Sua Operação</h2>
                         <p>
-                            O tempo de resposta impacta diretamente sua conversão. Veja o potencial de receita adicional ao automatizar seu atendimento.
+                            Entenda como a redução no tempo de resposta e a automação de follow-ups podem impactar sua receita mensal.
                         </p>
 
                         <div style={{ marginTop: '2rem', display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>

@@ -84,11 +84,14 @@ const ChatDemo = () => {
                         color: 'var(--color-accent)'
                     }}>
                         <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--color-accent)', display: 'block' }}></span>
-                        <span style={{ fontSize: '0.875rem', fontWeight: 600 }}>Experiência Ao Vivo</span>
+                        <span style={{ fontSize: '0.875rem', fontWeight: 600 }}>Demonstração</span>
                     </div>
-                    <h2>Sua Secretária IA Nunca Dorme</h2>
+                    <h2>Atendimento Natural via WhatsApp</h2>
                     <p style={{ textAlign: 'center', maxWidth: '600px' }}>
-                        Veja como nossa IA interage naturalmente via WhatsApp. Ela entende contexto, negocia horários, tira dúvidas e confirma agendamentos integrados diretamente ao seu sistema.
+                        Veja como o agente interage de forma contextual: entende a necessidade, oferece opções e confirma agendamentos integrados ao seu sistema.
+                    </p>
+                    <p style={{ textAlign: 'center', fontSize: '0.85rem', color: 'var(--color-text-muted)', maxWidth: '500px', marginTop: '0.5rem' }}>
+                        Exemplo ilustrativo para o segmento de saúde. A mesma lógica se aplica a qualquer nicho.
                     </p>
 
                 </div>
@@ -102,11 +105,11 @@ const ChatDemo = () => {
                     {/* Features List */}
                     <div style={{ flex: 1, minWidth: '300px' }}>
                         {[
-                            "Respostas instantâneas (< 2 seg)",
-                            "Tom de voz humano e empático",
-                            "Integração total com sua Agenda",
-                            "Qualificação automática de leads",
-                            "Recuperação de clientes inativos"
+                            "Respostas em menos de 2 segundos",
+                            "Conversa natural e contextualizada",
+                            "Integração com agenda e sistemas",
+                            "Base de conhecimento personalizada",
+                            "Disponível 24 horas, 7 dias por semana"
                         ].map((feature, i) => (
                             <motion.div
                                 key={i}

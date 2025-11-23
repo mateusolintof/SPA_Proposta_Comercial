@@ -48,17 +48,17 @@ const Hero = () => {
               color: 'var(--color-primary)'
             }}>
               <Zap size={16} />
-              <span style={{ fontSize: '0.875rem', fontWeight: 600 }}>Proposta Comercial de Alta Conversão</span>
+              <span style={{ fontSize: '0.875rem', fontWeight: 600 }}>Proposta Comercial</span>
             </div>
 
             <h1>
-              Transforme seu Atendimento em uma <br />
-              <span style={{ color: 'var(--color-primary)' }}>Máquina de Vendas 24/7</span>
+              Atendimento Inteligente do <br />
+              <span style={{ color: 'var(--color-primary)' }}>Primeiro Contato ao Pós-Venda</span>
             </h1>
 
             <p style={{ fontSize: '1.25rem', marginBottom: '2.5rem', maxWidth: '600px' }}>
-              Implante Agentes de IA que qualificam, vendem e fidelizam.
-              Integrados a um CRM poderoso que automatiza todo o seu processo comercial.
+              Agentes de IA que qualificam leads, recuperam oportunidades e fidelizam clientes.
+              Integrados a um CRM que centraliza toda sua operação comercial.
             </p>
 
             <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
@@ -85,8 +85,8 @@ const Hero = () => {
           >
             {[
               { icon: Bot, label: 'Atendimento IA', value: '24/7' },
-              { icon: Zap, label: 'Resposta', value: '< 2 seg' },
-              { icon: BarChart3, label: 'Aumento de Conversão', value: 'Até 3x' },
+              { icon: Zap, label: 'Tempo de Resposta', value: '< 2 seg' },
+              { icon: BarChart3, label: 'Agentes Especializados', value: '4' },
             ].map((item, index) => (
               <div key={index} className="glass-panel" style={{ padding: '1.5rem', textAlign: 'center' }}>
                 <item.icon size={32} style={{ color: 'var(--color-primary)', marginBottom: '0.5rem' }} />
