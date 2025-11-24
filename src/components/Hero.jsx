@@ -83,7 +83,7 @@ const Hero = () => {
             <img
               src={logoSrc}
               alt="convert A.I"
-              style={{ width: '100%', maxWidth: '720px', height: 'auto', objectFit: 'contain' }}
+              style={{ width: '100%', maxWidth: '1440px', height: 'auto', objectFit: 'contain' }}
             />
           </motion.div>
         </div>
