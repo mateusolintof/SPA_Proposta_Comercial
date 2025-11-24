@@ -310,7 +310,15 @@ const ChatDemo = () => {
                             </div>
                         </div>
                     </div>
-                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.6rem', width: '100%' }}>
+                    <div style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        gap: '0.6rem',
+                        width: '100%',
+                        gridColumn: '1 / -1',
+                        justifySelf: 'center'
+                    }}>
                         <button
                             className="btn btn-primary"
                             onClick={runSimulation}
