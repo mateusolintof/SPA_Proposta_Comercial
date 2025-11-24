@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Bot, Zap, BarChart3 } from 'lucide-react';
 
 const Hero = () => {
-  const logoSrc = '/Logo Principal-07.png'; // colocar este arquivo em /public
+  const logoSrc = '/Logo 3-07.png'; // colocar este arquivo em /public
 
   return (
     <section className="section" style={{ minHeight: '90vh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden' }}>
