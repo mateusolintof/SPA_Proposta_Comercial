@@ -6,6 +6,7 @@ import Solutions from './components/Solutions';
 import CRMModal from './components/CRMModal';
 import ROICalculator from './components/ROICalculator';
 import Investment from './components/Investment';
+import Timeline from './components/Timeline';
 import { Layout } from 'lucide-react';
 
 function App() {
@@ -69,6 +70,7 @@ function App() {
 
         <ROICalculator />
         <Investment />
+        <Timeline />
       </main>
 
       <footer style={{ padding: '4rem 0', borderTop: '1px solid var(--color-border)', textAlign: 'center', color: 'var(--color-text-muted)' }}>

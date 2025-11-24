@@ -13,8 +13,8 @@ const Solutions = () => {
         },
         {
             icon: PhoneOutgoing,
-            title: 'Agente de Follow-up',
-            description: 'Reativa automaticamente leads que foram qualificados mas não concluíram a compra. Mantém o relacionamento ativo sem esforço manual.',
+            title: 'Agente de Follow-up + No-show',
+            description: 'Reativa automaticamente leads que foram qualificados mas não concluíram a compra. Mantém o relacionamento ativo sem esforço manual. Além de realizar remarcações de clientes.',
             highlights: ['Sequências personalizadas', 'Timing inteligente', 'Sem leads esquecidos'],
             color: '#10b981'
         },

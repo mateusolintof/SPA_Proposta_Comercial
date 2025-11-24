@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Send, Phone, Video, MoreVertical, CheckCheck, Bot } from 'lucide-react';
+import { Send, Phone, Video, MoreVertical, CheckCheck, Bot, Info, X } from 'lucide-react';
 
 const ChatDemo = () => {
     const [messages, setMessages] = useState([
@@ -8,6 +8,7 @@ const ChatDemo = () => {
     ]);
     const [isTyping, setIsTyping] = useState(false);
     const [simulationStarted, setSimulationStarted] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const messagesContainerRef = useRef(null);
 
     const scrollToBottom = (behavior = 'auto') => {
@@ -27,7 +28,7 @@ const ChatDemo = () => {
 
     const script = [
         { text: "Oi! Tudo bem? 😊", delay: 1600 },
-        { text: "Sou a Alice, atendente virtual do Studio Bella.", delay: 1600 },
+        { text: "Sou a Alice, atendente do Studio Bella.", delay: 1600 },
         { text: "Como posso te ajudar hoje?", delay: 1600 },
         { userText: "Gostaria de saber sobre os serviços que vocês atendem no Salão", delay: 1600 },
         { text: "Claro! Trabalhamos com cortes femininos e masculinos", delay: 1600 },
@@ -92,7 +93,7 @@ const ChatDemo = () => {
                         letterSpacing: '-0.01em'
                     }}>
                         <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--color-primary)', display: 'block' }}></span>
-                        <span style={{ fontSize: '0.9rem' }}>Demonstração em 30 segundos</span>
+                        <span style={{ fontSize: '0.9rem' }}>Conversa Natural e Contextualizada como um humano conversaria</span>
                     </div>
                     <h2 style={{ textAlign: 'center' }}>Atendimento via WhatsApp</h2>
                     <p style={{ textAlign: 'center', maxWidth: '560px', marginBottom: '0.75rem' }}>
@@ -327,11 +328,120 @@ const ChatDemo = () => {
                             {simulationStarted ? 'Reiniciar Simulação' : 'Iniciar Simulação'}
                         </button>
                         <p style={{ textAlign: 'center', fontSize: '0.85rem', color: 'var(--color-text-muted)', maxWidth: '520px', margin: '0 auto' }}>
-                            Exemplo ilustrativo para salão de beleza. A mesma lógica se aplica a outros nichos.
+                            Exemplo ilustrativo para salão de beleza.
+                            <br />
+                            Lógica se aplica a outros nichos.
                         </p>
+                        <button
+                            onClick={() => setIsModalOpen(true)}
+                            style={{
+                                background: 'transparent',
+                                border: 'none',
+                                color: 'var(--color-primary)',
+                                fontSize: '0.85rem',
+                                fontWeight: 600,
+                                textDecoration: 'underline',
+                                cursor: 'pointer',
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '0.25rem'
+                            }}
+                        >
+                            <Info size={14} />
+                            Entenda a simulação
+                        </button>
                     </div>
                 </div>
             </div>
+
+            {/* Modal de Explicação da Simulação */}
+            <AnimatePresence>
+                {isModalOpen && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        style={{
+                            position: 'fixed',
+                            inset: 0,
+                            zIndex: 100,
+                            background: 'rgba(0,0,0,0.6)',
+                            backdropFilter: 'blur(4px)',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            padding: '1rem'
+                        }}
+                        onClick={() => setIsModalOpen(false)}
+                    >
+                        <motion.div
+                            initial={{ scale: 0.9, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0.9, opacity: 0 }}
+                            style={{
+                                background: 'white',
+                                borderRadius: '1.5rem',
+                                padding: '2rem',
+                                maxWidth: '500px',
+                                width: '100%',
+                                position: 'relative',
+                                boxShadow: '0 20px 50px rgba(0,0,0,0.2)'
+                            }}
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <button
+                                onClick={() => setIsModalOpen(false)}
+                                style={{
+                                    position: 'absolute',
+                                    top: '1rem',
+                                    right: '1rem',
+                                    background: 'transparent',
+                                    border: 'none',
+                                    color: '#6b7280',
+                                    cursor: 'pointer'
+                                }}
+                            >
+                                <X size={24} />
+                            </button>
+
+                            <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem', color: 'var(--color-primary)' }}>
+                                A Humanização da IA
+                            </h3>
+
+                            <p style={{ marginBottom: '1rem', color: 'var(--color-text)' }}>
+                                O que você vê nesta simulação é como a nossa IA foi treinada para se comportar <strong>exatamente como um humano</strong>.
+                            </p>
+
+                            <div style={{ background: 'var(--color-bg)', padding: '1rem', borderRadius: '1rem', marginBottom: '1rem' }}>
+                                <h4 style={{ fontSize: '1rem', marginBottom: '0.5rem', color: 'var(--color-text)' }}>Por que parece tão natural?</h4>
+                                <ul style={{ paddingLeft: '1.2rem', color: 'var(--color-text-muted)', fontSize: '0.9rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                                    <li>
+                                        <strong>Chunknization (Fragmentação):</strong> A IA não manda "textões". Ela quebra as respostas em mensagens curtas e sequenciais, igual a gente faz no WhatsApp.
+                                    </li>
+                                    <li>
+                                        <strong>Simulação de Digitação:</strong> Antes de enviar, ela mostra o "digitando...", criando o ritmo natural de uma conversa real.
+                                    </li>
+                                    <li>
+                                        <strong>Contexto:</strong> Ela lembra do que foi dito antes e responde de forma coerente, não como um robô que só segue comandos.
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)' }}>
+                                O objetivo é que o seu cliente sinta que está sendo atendido com atenção e cuidado, aumentando a confiança e a conversão.
+                            </p>
+
+                            <button
+                                className="btn btn-primary"
+                                onClick={() => setIsModalOpen(false)}
+                                style={{ width: '100%', marginTop: '1.5rem', justifyContent: 'center' }}
+                            >
+                                Entendi
+                            </button>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </section>
     );
 };
