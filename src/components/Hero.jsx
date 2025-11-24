@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Bot, Zap, BarChart3 } from 'lucide-react';
 
 const Hero = () => {
+  const logoSrc = '/Logo 2-07.png'; // colocar este arquivo em /public
+
   return (
     <section className="section" style={{ minHeight: '90vh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden' }}>
       {/* Background Elements */}
@@ -30,11 +32,12 @@ const Hero = () => {
       </div>
 
       <div className="container">
-        <div style={{ maxWidth: '800px' }}>
+        <div className="hero-top">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
+            style={{ maxWidth: '680px' }}
           >
             <div style={{
               display: 'inline-flex',
@@ -72,60 +75,66 @@ const Hero = () => {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
-            style={{
-              marginTop: '4rem',
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
-              gap: '1.25rem',
-              justifyItems: 'center',
-              maxWidth: '520px',
-              marginLeft: 'auto',
-              marginRight: 'auto'
-            }}
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.15, duration: 0.7 }}
+            className="hero-logo-wrap"
           >
-            {[
-              { icon: Bot, label: 'Atendimento IA', value: '24/7' },
-              { icon: Zap, label: 'Tempo de Resposta', value: '< 2 seg' },
-              {
-                icon: BarChart3,
-                label: 'Sistema com Atendimento SDR + Pós-venda + CRM de Gestão',
-                value: null,
-                wide: true
-              },
-            ].map((item, index) => (
-              <div
-                key={index}
-                className="glass-panel"
-                style={{
-                  padding: '1.25rem',
-                  textAlign: 'center',
-                  width: '100%',
-                  maxWidth: item.wide ? '100%' : '220px',
-                  gridColumn: item.wide ? '1 / -1' : 'auto',
-                  justifySelf: item.wide ? 'stretch' : 'center'
-                }}
-              >
-                <item.icon size={32} style={{ color: 'var(--color-primary)', marginBottom: '0.5rem' }} />
-                {item.value && (
-                  <div style={{ fontSize: '1.5rem', fontWeight: 700, color: 'var(--color-text)' }}>{item.value}</div>
-                )}
-                <div style={{
-                  fontSize: item.wide ? '1rem' : '0.85rem',
-                  color: 'var(--color-text-muted)',
-                  lineHeight: 1.3,
-                  fontWeight: item.wide ? 700 : 400,
-                  maxWidth: item.wide ? '420px' : '100%',
-                  margin: item.wide ? '0 auto' : undefined
-                }}>
-                  {item.label}
-                </div>
-              </div>
-            ))}
+            <div className="glass-panel" style={{ padding: '1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <img
+                src={logoSrc}
+                alt="convert A.I"
+                style={{ width: '100%', maxWidth: '420px', height: 'auto', objectFit: 'contain' }}
+              />
+            </div>
           </motion.div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.25, duration: 0.8 }}
+          className="hero-cards"
+        >
+          {[
+            { icon: Bot, label: 'Atendimento IA', value: '24/7' },
+            { icon: Zap, label: 'Tempo de Resposta', value: '< 2 seg' },
+            {
+              icon: BarChart3,
+              label: 'Sistema com Atendimento SDR + Pós-venda + CRM de Gestão',
+              value: null,
+              wide: true
+            },
+          ].map((item, index) => (
+            <div
+              key={index}
+              className="glass-panel"
+              style={{
+                padding: '1.5rem',
+                textAlign: 'center',
+                width: '100%',
+                maxWidth: item.wide ? '100%' : '260px',
+                gridColumn: item.wide ? '1 / -1' : 'auto',
+                justifySelf: item.wide ? 'stretch' : 'center'
+              }}
+            >
+              <item.icon size={32} style={{ color: 'var(--color-primary)', marginBottom: '0.5rem' }} />
+              {item.value && (
+                <div style={{ fontSize: '1.5rem', fontWeight: 700, color: 'var(--color-text)' }}>{item.value}</div>
+              )}
+              <div style={{
+                fontSize: item.wide ? '1rem' : '0.9rem',
+                color: 'var(--color-text-muted)',
+                lineHeight: 1.35,
+                fontWeight: item.wide ? 700 : 500,
+                maxWidth: item.wide ? '520px' : '100%',
+                margin: item.wide ? '0 auto' : undefined
+              }}>
+                {item.label}
+              </div>
+            </div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );
