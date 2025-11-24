@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Layout, MessageSquare, PieChart, Plus, MoreHorizontal, Search, Bell, Menu } from 'lucide-react';
+import { X, Layout, MessageSquare, PieChart, Plus, MoreHorizontal, Search, Bell, Menu, ArrowLeft } from 'lucide-react';
 
 const CRMModal = ({ isOpen, onClose }) => {
     const [activeTab, setActiveTab] = useState('kanban');
