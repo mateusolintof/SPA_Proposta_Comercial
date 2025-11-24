@@ -102,7 +102,7 @@ const ChatDemo = () => {
 
                 </div>
 
-                <div className="layout-grid cols-2 align-start" style={{ alignItems: 'center' }}>
+                <div className="layout-grid cols-2 align-start demo-grid" style={{ alignItems: 'center' }}>
                     {/* Features List */}
                     <div style={{ flex: 1, minWidth: 0, paddingRight: '0.25rem' }}>
                         {[

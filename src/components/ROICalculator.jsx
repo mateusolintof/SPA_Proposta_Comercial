@@ -23,7 +23,7 @@ const ROICalculator = () => {
     return (
         <section className="section" style={{ background: 'linear-gradient(to bottom, var(--color-bg), var(--color-bg-secondary))' }}>
             <div className="container">
-                <div className="layout-grid cols-2 align-start">
+                <div className="layout-grid cols-2 align-start roi-grid">
                     <div style={{ flex: 1, minWidth: 0 }}>
                         <div style={{
                             display: 'inline-flex',

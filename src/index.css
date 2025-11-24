@@ -331,6 +331,32 @@ p {
   }
 }
 
+/* Desktop helpers */
+.demo-grid {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+}
+
+.roi-grid {
+  gap: 2.5rem;
+}
+
+@media (min-width: 1024px) {
+  .section {
+    padding: 5rem 0;
+  }
+  .demo-grid {
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 3rem;
+  }
+  .roi-grid {
+    grid-template-columns: 1.05fr 0.95fr;
+    align-items: start;
+    gap: 3rem;
+  }
+}
+
 /* Layout helpers for consistent mobile spacing */
 .layout-grid {
   display: grid;
