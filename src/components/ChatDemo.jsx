@@ -4,7 +4,7 @@ import { Send, Phone, Video, MoreVertical, CheckCheck, Bot } from 'lucide-react'
 
 const ChatDemo = () => {
     const [messages, setMessages] = useState([
-        { id: 1, text: "Olá! Gostaria de agendar uma consulta.", sender: 'user', time: '10:00' }
+        { id: 1, text: "Oi, boa tarde! Tudo bem?", sender: 'user', time: '10:00' }
     ]);
     const [isTyping, setIsTyping] = useState(false);
     const [simulationStarted, setSimulationStarted] = useState(false);
@@ -26,31 +26,30 @@ const ChatDemo = () => {
     }, [messages, isTyping, simulationStarted]);
 
     const script = [
-        {
-            text: "Olá! Sou a assistente virtual da Clínica Dr. Maurício. Claro, posso ajudar com isso. Qual seria a sua especialidade de interesse?",
-            delay: 1500
-        },
-        {
-            userText: "Preciso de um cardiologista.",
-            delay: 1000
-        },
-        {
-            text: "Perfeito. Temos horários disponíveis para Cardiologia amanhã às 14h ou quinta-feira às 09h. Algum desses funciona para você?",
-            delay: 1500
-        },
-        {
-            userText: "Amanhã às 14h está ótimo.",
-            delay: 1000
-        },
-        {
-            text: "Combinado! Agendado para amanhã, quarta-feira, às 14h com Dr. Silva. Precisa de mais alguma informação?",
-            delay: 1500
-        }
+        { text: "Oi! Tudo bem? 😊", delay: 1600 },
+        { text: "Sou a Alice, atendente virtual do Studio Bella.", delay: 1600 },
+        { text: "Como posso te ajudar hoje?", delay: 1600 },
+        { userText: "Gostaria de saber sobre os serviços que vocês atendem no Salão", delay: 1600 },
+        { text: "Claro! Trabalhamos com cortes femininos e masculinos", delay: 1600 },
+        { text: "E diversos outros protocolos e tratamentos", delay: 1300 },
+        { text: "tanto para cabelo, unha e pele", delay: 1300 },
+        { text: "Tem algo específico que te interessa?", delay: 1600 },
+        { userText: "Quero saber sobre o Corte Masculino e Selagem. Quanto custa?", delay: 1600 },
+        { text: "Ótima escolha! 😊", delay: 1300 },
+        { text: "O corte masculino tem o valor de R$ 80,00 e a selagem tem o valor de R$ 180,00.", delay: 1950 },
+        { text: "Posso verificar os horários disponíveis pra você?", delay: 1600 },
+        { userText: "Pode sim! Tenho preferência por sábado", delay: 1600 },
+        { text: "Deixa eu ver aqui...", delay: 1300 },
+        { text: "Temos sábado às 10h ou às 14h30. Qual fica melhor?", delay: 1950 },
+        { userText: "14h30 fica perfeito", delay: 1600 },
+        { text: "Perfeito! ✨", delay: 1300 },
+        { text: "Agendado: corte masculino + selagem no sábado às 14h30 com a Carla.", delay: 1950 },
+        { text: "Vou te enviar uma confirmação amanhã, tá bom?", delay: 1600 }
     ];
 
     const runSimulation = async () => {
         setSimulationStarted(true);
-        setMessages([{ id: 1, text: "Olá! Gostaria de agendar uma consulta.", sender: 'user', time: '10:00' }]);
+        setMessages([{ id: 1, text: "Oi, boa tarde! Tudo bem?", sender: 'user', time: '10:00' }]);
 
         for (let step of script) {
             if (step.userText) {
@@ -93,7 +92,7 @@ const ChatDemo = () => {
                         letterSpacing: '-0.01em'
                     }}>
                         <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--color-primary)', display: 'block' }}></span>
-                        <span style={{ fontSize: '0.9rem' }}>Demonstração</span>
+                        <span style={{ fontSize: '0.9rem' }}>Demonstração em 30 segundos</span>
                     </div>
                     <h2 style={{ textAlign: 'center' }}>Atendimento via WhatsApp</h2>
                     <p style={{ textAlign: 'center', maxWidth: '560px', marginBottom: '0.75rem' }}>
@@ -135,7 +134,7 @@ const ChatDemo = () => {
                     <div style={{
                         width: '100%',
                         maxWidth: '380px',
-                        minHeight: '560px',
+                        height: '640px',
                         background: '#000',
                         borderRadius: '32px',
                         padding: 0,
@@ -171,7 +170,7 @@ const ChatDemo = () => {
                                     <Bot size={20} color="#000" />
                                 </div>
                                 <div style={{ flex: 1 }}>
-                                    <div style={{ fontSize: '0.9rem', fontWeight: 600 }}>Clínica Dr. Maurício</div>
+                                    <div style={{ fontSize: '0.9rem', fontWeight: 600 }}>Studio Bella</div>
                                     <div style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.8)' }}>online</div>
                                 </div>
                                 <Video size={20} />
@@ -189,7 +188,8 @@ const ChatDemo = () => {
                                     backgroundImage: 'url("https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png")',
                                     backgroundSize: 'cover',
                                     backgroundColor: '#efeae2',
-                                    minHeight: '430px'
+                                    minHeight: 0,
+                                    maxHeight: '100%'
                                 }}>
                                 <div style={{
                                     background: 'rgba(255,255,255,0.9)',
@@ -216,31 +216,40 @@ const ChatDemo = () => {
                                                 marginBottom: '0.5rem'
                                             }}
                                         >
-                                            <div style={{
-                                                background: msg.sender === 'user' ? 'var(--color-success)' : 'white', // Light Green for User
-                                                color: '#111b21',
-                                                padding: '0.5rem 0.8rem',
-                                                borderRadius: '0.5rem',
-                                                borderTopRightRadius: msg.sender === 'user' ? 0 : '0.5rem',
-                                                borderTopLeftRadius: msg.sender === 'bot' ? 0 : '0.5rem',
-                                                maxWidth: '80%',
-                                                boxShadow: '0 1px 0.5px rgba(0,0,0,0.13)',
-                                                fontSize: '0.9rem',
-                                                position: 'relative'
-                                            }}>
-                                                {msg.text}
+                                            <div style={{ maxWidth: '80%' }}>
                                                 <div style={{
-                                                    fontSize: '0.65rem',
+                                                    fontSize: '0.7rem',
                                                     color: '#667781',
-                                                    textAlign: 'right',
-                                                    marginTop: '0.2rem',
-                                                    display: 'flex',
-                                                    alignItems: 'center',
-                                                    justifyContent: 'flex-end',
-                                                    gap: '0.2rem'
+                                                    marginBottom: '0.2rem',
+                                                    marginLeft: '0.1rem'
                                                 }}>
-                                                    {msg.time}
-                                                    {msg.sender === 'user' && <CheckCheck size={14} color="#53bdeb" />}
+                                                    {msg.sender === 'user' ? 'Você' : 'Studio Bella'}
+                                                </div>
+                                                <div style={{
+                                                    background: msg.sender === 'user' ? 'var(--color-success)' : 'white', // Light Green for User
+                                                    color: '#111b21',
+                                                    padding: '0.5rem 0.8rem',
+                                                    borderRadius: '0.5rem',
+                                                    borderTopRightRadius: msg.sender === 'user' ? 0 : '0.5rem',
+                                                    borderTopLeftRadius: msg.sender === 'bot' ? 0 : '0.5rem',
+                                                    boxShadow: '0 1px 0.5px rgba(0,0,0,0.13)',
+                                                    fontSize: '0.9rem',
+                                                    position: 'relative'
+                                                }}>
+                                                    {msg.text}
+                                                    <div style={{
+                                                        fontSize: '0.65rem',
+                                                        color: '#667781',
+                                                        textAlign: 'right',
+                                                        marginTop: '0.2rem',
+                                                        display: 'flex',
+                                                        alignItems: 'center',
+                                                        justifyContent: 'flex-end',
+                                                        gap: '0.2rem'
+                                                    }}>
+                                                        {msg.time}
+                                                        {msg.sender === 'user' && <CheckCheck size={14} color="#53bdeb" />}
+                                                    </div>
                                                 </div>
                                             </div>
                                         </motion.div>
@@ -310,7 +319,7 @@ const ChatDemo = () => {
                             {simulationStarted ? 'Reiniciar Simulação' : 'Iniciar Simulação'}
                         </button>
                         <p style={{ textAlign: 'center', fontSize: '0.85rem', color: 'var(--color-text-muted)', maxWidth: '480px', margin: 0 }}>
-                            Exemplo ilustrativo para o segmento de saúde. A mesma lógica se aplica a qualquer nicho.
+                            Exemplo ilustrativo para salão de beleza. A mesma lógica se aplica a outros nichos.
                         </p>
                     </div>
                 </div>
