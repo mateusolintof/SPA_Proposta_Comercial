@@ -1,44 +1,16 @@
 import React from 'react';
-import { Check } from 'lucide-react';
 
 const Investment = () => {
-    const deliverables = [
-        "Agente de Atendimento Inteligente (WhatsApp 24/7)",
-        "Agente de Follow-up Automatizado",
-        "Agente Pós-vendas (NPS, CSAT e Fluxos de Recompra)",
-        "CRM Personalizado com Pipelines de Vendas",
-        "Inbox Unificado (conversas centralizadas)",
-        "Dashboard de Performance em Tempo Real",
-        "Treinamento da Equipe",
-        "Suporte Técnico Contínuo"
-    ];
-
     return (
-        <section className="section">
+        <section className="section" style={{ paddingTop: '3rem', paddingBottom: '3.5rem' }}>
             <div className="container">
                 <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
                     <h2>Investimento & Entregáveis</h2>
                     <p>Tudo o que você precisa para escalar sua operação comercial.</p>
                 </div>
 
-                <div className="layout-grid cols-2 align-start">
-                    {/* Deliverables */}
-                    <div>
-                        <h3 style={{ fontSize: '1.5rem', marginBottom: '2rem' }}>O que está incluso:</h3>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                            {deliverables.map((item, i) => (
-                                <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '1rem', background: 'var(--color-bg-secondary)', borderRadius: '0.5rem', border: '1px solid var(--color-border)' }}>
-                                    <div style={{ background: 'rgba(14, 165, 233, 0.1)', padding: '0.25rem', borderRadius: '50%', color: 'var(--color-primary)' }}>
-                                        <Check size={16} />
-                                    </div>
-                                    <span style={{ fontWeight: 500 }}>{item}</span>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-
-                    {/* Pricing Card */}
-                    <div className="glass-panel" style={{ padding: 'clamp(2rem, 4vw, 3rem)', textAlign: 'center', border: '1px solid var(--color-primary-glow)', boxShadow: '0 10px 40px -10px var(--color-primary-glow)' }}>
+                <div style={{ display: 'flex', justifyContent: 'center' }}>
+                    <div className="glass-panel" style={{ padding: 'clamp(2rem, 4vw, 3rem)', textAlign: 'center', border: '1px solid var(--color-primary-glow)', boxShadow: '0 10px 40px -10px var(--color-primary-glow)', maxWidth: '440px', width: '100%' }}>
                         <div style={{ fontSize: '1.2rem', fontWeight: 600, color: 'var(--color-primary)', marginBottom: '0.75rem' }}>Projeto Completo</div>
                         <div style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', fontWeight: 800, color: 'var(--color-text)', marginBottom: '0.35rem' }}>R$ 10k</div>
                         <div style={{ color: 'var(--color-text-muted)', marginBottom: '1.5rem' }}>Setup & Implementação</div>

@@ -76,38 +76,36 @@ const ChatDemo = () => {
     };
 
     return (
-        <section className="section" style={{ background: 'var(--color-bg-secondary)' }}>
+        <section className="section" style={{ background: 'var(--color-bg-secondary)', paddingTop: '1.5rem' }}>
             <div className="container">
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '4rem' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '1.75rem' }}>
                     <div style={{
                         display: 'inline-flex',
                         alignItems: 'center',
                         gap: '0.5rem',
-                        padding: '0.5rem 1rem',
-                        background: 'rgba(16, 185, 129, 0.1)',
+                        padding: '0.55rem 1.1rem',
+                        background: 'rgba(1, 49, 23, 0.12)',
                         borderRadius: '2rem',
-                        border: '1px solid rgba(16, 185, 129, 0.2)',
+                        border: '1px solid rgba(1, 49, 23, 0.2)',
                         marginBottom: '1rem',
-                        color: 'var(--color-accent)'
+                        color: 'var(--color-primary)',
+                        fontWeight: 700,
+                        letterSpacing: '-0.01em'
                     }}>
-                        <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--color-accent)', display: 'block' }}></span>
-                        <span style={{ fontSize: '0.875rem', fontWeight: 600 }}>Demonstração</span>
+                        <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--color-primary)', display: 'block' }}></span>
+                        <span style={{ fontSize: '0.9rem' }}>Demonstração</span>
                     </div>
-                    <h2>Atendimento Natural via WhatsApp</h2>
-                    <p style={{ textAlign: 'center', maxWidth: '600px' }}>
+                    <h2 style={{ textAlign: 'center' }}>Atendimento via WhatsApp</h2>
+                    <p style={{ textAlign: 'center', maxWidth: '560px', marginBottom: '0.75rem' }}>
                         Veja como o agente interage de forma contextual: entende a necessidade, oferece opções e confirma agendamentos integrados ao seu sistema.
-                    </p>
-                    <p style={{ textAlign: 'center', fontSize: '0.85rem', color: 'var(--color-text-muted)', maxWidth: '500px', marginTop: '0.5rem' }}>
-                        Exemplo ilustrativo para o segmento de saúde. A mesma lógica se aplica a qualquer nicho.
                     </p>
 
                 </div>
 
-                <div className="layout-grid cols-2 align-start">
+                <div className="layout-grid cols-2 align-start" style={{ alignItems: 'center' }}>
                     {/* Features List */}
-                    <div style={{ flex: 1, minWidth: 0 }}>
+                    <div style={{ flex: 1, minWidth: 0, paddingRight: '0.25rem' }}>
                         {[
-                            "Respostas em menos de 2 segundos",
                             "Conversa natural e contextualizada",
                             "Integração com agenda e sistemas",
                             "Base de conhecimento personalizada",
@@ -136,16 +134,19 @@ const ChatDemo = () => {
                     {/* Phone Mockup */}
                     <div style={{
                         width: '100%',
-                        maxWidth: '360px',
-                        minHeight: '520px',
+                        maxWidth: '380px',
+                        minHeight: '560px',
                         background: '#000',
-                        borderRadius: '40px',
-                        padding: 'clamp(10px, 3vw, 14px)',
-                        boxShadow: '0 20px 50px -10px rgba(0,0,0,0.5)',
-                        border: '4px solid #333',
+                        borderRadius: '32px',
+                        padding: 0,
+                        boxShadow: '0 18px 42px -12px rgba(0,0,0,0.55)',
+                        border: '4px solid #1f2937',
                         position: 'relative',
                         justifySelf: 'center',
-                        margin: '0 auto'
+                        margin: '0 auto',
+                        overflow: 'hidden',
+                        display: 'flex',
+                        flexDirection: 'column'
                     }}>
                         {/* Screen */}
                         <div style={{
@@ -182,13 +183,14 @@ const ChatDemo = () => {
                             <div
                                 ref={messagesContainerRef}
                                 style={{
-                                flex: 1,
-                                padding: '1rem',
-                                overflowY: 'auto',
-                                backgroundImage: 'url("https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png")',
-                                backgroundSize: 'contain',
-                                backgroundColor: '#efeae2' // WhatsApp Light BG
-                            }}>
+                                    flex: 1,
+                                    padding: '1rem',
+                                    overflowY: 'auto',
+                                    backgroundImage: 'url("https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png")',
+                                    backgroundSize: 'cover',
+                                    backgroundColor: '#efeae2',
+                                    minHeight: '430px'
+                                }}>
                                 <div style={{
                                     background: 'rgba(255,255,255,0.9)',
                                     color: '#54656f',
@@ -269,37 +271,37 @@ const ChatDemo = () => {
 
                             {/* Input Area */}
                             <div style={{
-                                padding: '0.5rem',
+                                padding: '0.8rem',
                                 background: '#f0f2f5',
                                 display: 'flex',
                                 alignItems: 'center',
-                                gap: '0.5rem'
+                                gap: '0.6rem'
                             }}>
                                 <div style={{
                                     flex: 1,
                                     background: 'white',
-                                    borderRadius: '1.5rem',
-                                    padding: '0.6rem 1rem',
+                                    borderRadius: '1.6rem',
+                                    padding: '0.75rem 1.05rem',
                                     color: '#54656f',
-                                    fontSize: '0.9rem'
+                                    fontSize: '1rem'
                                 }}>
                                     Digite uma mensagem
                                 </div>
                                 <div style={{
-                                    width: '40px',
-                                    height: '40px',
+                                    width: '48px',
+                                    height: '48px',
                                     background: 'var(--color-primary)',
                                     borderRadius: '50%',
                                     display: 'flex',
                                     alignItems: 'center',
                                     justifyContent: 'center'
                                 }}>
-                                    <Send size={20} color="#fff" />
+                                    <Send size={22} color="#fff" />
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div style={{ display: 'flex', justifyContent: 'center' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.6rem' }}>
                         <button
                             className="btn btn-primary"
                             onClick={runSimulation}
@@ -307,6 +309,9 @@ const ChatDemo = () => {
                         >
                             {simulationStarted ? 'Reiniciar Simulação' : 'Iniciar Simulação'}
                         </button>
+                        <p style={{ textAlign: 'center', fontSize: '0.85rem', color: 'var(--color-text-muted)', maxWidth: '480px', margin: 0 }}>
+                            Exemplo ilustrativo para o segmento de saúde. A mesma lógica se aplica a qualquer nicho.
+                        </p>
                     </div>
                 </div>
             </div>

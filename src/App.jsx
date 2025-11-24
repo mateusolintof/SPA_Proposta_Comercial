@@ -39,10 +39,8 @@ function App() {
 
       <main>
         <Hero />
-        <ChatDemo />
         <FlowDiagram />
-        <Solutions />
-
+        <ChatDemo />
         {/* CRM Teaser Section */}
         <section className="section" style={{ textAlign: 'center' }}>
           <div className="container">
@@ -66,6 +64,8 @@ function App() {
             </div>
           </div>
         </section>
+
+        <Solutions />
 
         <ROICalculator />
         <Investment />

@@ -35,9 +35,10 @@ const CRMModal = ({ isOpen, onClose }) => {
                         background: 'rgba(0,0,0,0.8)',
                         backdropFilter: 'blur(5px)',
                         display: 'flex',
-                        alignItems: 'center',
+                        alignItems: 'flex-start',
                         justifyContent: 'center',
-                        padding: 'clamp(1rem, 3vw, 2rem)'
+                        padding: 'clamp(1rem, 3vw, 2rem)',
+                        overflowY: 'auto'
                     }}
                 >
                     <motion.div
@@ -45,6 +46,7 @@ const CRMModal = ({ isOpen, onClose }) => {
                         animate={{ scale: 1, opacity: 1 }}
                         exit={{ scale: 0.96, opacity: 0 }}
                         className="crm-shell"
+                        style={{ maxHeight: '90vh', overflow: 'hidden' }}
                     >
                         {/* Sidebar */}
                         <div className="crm-sidebar">
@@ -110,9 +112,9 @@ const CRMModal = ({ isOpen, onClose }) => {
                             }}>
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                                     <button
-                                        className="crm-menu-btn"
-                                        aria-label="Abrir menu"
-                                        onClick={() => setMobileNavOpen(true)}
+                                    className="crm-menu-btn"
+                                    aria-label="Abrir menu"
+                                    onClick={() => setMobileNavOpen(true)}
                                     >
                                         <Menu size={20} />
                                     </button>
@@ -124,6 +126,12 @@ const CRMModal = ({ isOpen, onClose }) => {
                                 </div>
 
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                                    <button
+                                        onClick={onClose}
+                                        style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', border: '1px solid #e5e7eb', background: '#f9fafb', color: '#111827', borderRadius: '0.5rem', padding: '0.4rem 0.7rem', fontWeight: 600, cursor: 'pointer' }}
+                                    >
+                                        <ArrowLeft size={16} /> Voltar
+                                    </button>
                                     <div style={{ position: 'relative' }}>
                                         <Search size={20} color="#9ca3af" style={{ position: 'absolute', left: '0.75rem', top: '50%', transform: 'translateY(-50%)' }} />
                                         <input

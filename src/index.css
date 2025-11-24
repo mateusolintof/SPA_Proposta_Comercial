@@ -320,6 +320,17 @@ p {
   }
 }
 
+@media (max-width: 380px) {
+  .hero-cta-stack {
+    width: 100%;
+    flex-direction: column;
+  }
+  .hero-cta-stack .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
 /* Layout helpers for consistent mobile spacing */
 .layout-grid {
   display: grid;

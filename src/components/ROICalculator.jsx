@@ -12,6 +12,14 @@ const ROICalculator = () => {
     const projectedRevenue = leads * (projectedConv / 100) * ticket;
     const increase = projectedRevenue - currentRevenue;
 
+    const snapLeadValue = (value) => {
+        if (value < 100) return 100;
+        if (value <= 1000) return Math.round((value - 100) / 50) * 50 + 100;
+        if (value <= 2500) return Math.round(value / 100) * 100;
+        if (value <= 5000) return Math.round(value / 500) * 500;
+        return Math.round(value / 1000) * 1000;
+    };
+
     return (
         <section className="section" style={{ background: 'linear-gradient(to bottom, var(--color-bg), var(--color-bg-secondary))' }}>
             <div className="container">
@@ -41,11 +49,11 @@ const ROICalculator = () => {
                                 <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.9rem', color: 'var(--color-text-muted)' }}>Leads Mensais</label>
                                 <input
                                     type="range"
-                                    min="50"
-                                    max="1000"
-                                    step="10"
+                                    min="100"
+                                    max="10000"
+                                    step="50"
                                     value={leads}
-                                    onChange={(e) => setLeads(Number(e.target.value))}
+                                    onChange={(e) => setLeads(snapLeadValue(Number(e.target.value)))}
                                     style={{ width: '100%', accentColor: 'var(--color-primary)' }}
                                 />
                                 <div style={{ fontWeight: 700, fontSize: '1.25rem' }}>{leads}</div>
@@ -96,7 +104,7 @@ const ROICalculator = () => {
                             <div style={{ position: 'relative', zIndex: 1 }}>
                                 <div style={{ marginBottom: '2rem', paddingBottom: '2rem', borderBottom: '1px solid var(--color-border)' }}>
                                     <div style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', marginBottom: '0.5rem' }}>Receita Atual Estimada</div>
-                                    <div style={{ fontSize: '2rem', fontWeight: 700, color: 'var(--color-text-muted)' }}>
+                                    <div style={{ fontSize: 'clamp(1.8rem, 5vw, 2.2rem)', fontWeight: 700, color: 'var(--color-text-muted)' }}>
                                         {new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(currentRevenue)}
                                     </div>
                                 </div>
@@ -110,15 +118,15 @@ const ROICalculator = () => {
                                         key={projectedRevenue}
                                         initial={{ scale: 0.9, opacity: 0.5 }}
                                         animate={{ scale: 1, opacity: 1 }}
-                                        style={{ fontSize: '3.5rem', fontWeight: 800, color: 'var(--color-text)', lineHeight: 1 }}
+                                        style={{ fontSize: 'clamp(2.4rem, 7vw, 3.2rem)', fontWeight: 800, color: 'var(--color-text)', lineHeight: 1.1 }}
                                     >
                                         {new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(projectedRevenue)}
                                     </motion.div>
-                                    <div style={{ marginTop: '1rem', padding: '1rem', background: 'rgba(16, 185, 129, 0.1)', borderRadius: '0.5rem', border: '1px solid rgba(16, 185, 129, 0.2)' }}>
+                                    <div style={{ marginTop: '1rem', padding: '1rem', background: 'rgba(16, 185, 129, 0.1)', borderRadius: '0.5rem', border: '1px solid rgba(16, 185, 129, 0.2)', fontSize: '0.92rem' }}>
                                         <span style={{ color: 'var(--color-accent)', fontWeight: 600 }}>
                                             +{new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(increase)}
                                         </span>
-                                        <span style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem' }}> de receita extra mensal</span>
+                                        <span style={{ color: 'var(--color-text-muted)' }}> de receita extra mensal</span>
                                     </div>
                                 </div>
                             </div>
