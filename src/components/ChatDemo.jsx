@@ -310,7 +310,7 @@ const ChatDemo = () => {
                             </div>
                         </div>
                     </div>
-                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.6rem' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.6rem', width: '100%' }}>
                         <button
                             className="btn btn-primary"
                             onClick={runSimulation}
@@ -318,7 +318,7 @@ const ChatDemo = () => {
                         >
                             {simulationStarted ? 'Reiniciar Simulação' : 'Iniciar Simulação'}
                         </button>
-                        <p style={{ textAlign: 'center', fontSize: '0.85rem', color: 'var(--color-text-muted)', maxWidth: '480px', margin: 0 }}>
+                        <p style={{ textAlign: 'center', fontSize: '0.85rem', color: 'var(--color-text-muted)', maxWidth: '520px', margin: '0 auto' }}>
                             Exemplo ilustrativo para salão de beleza. A mesma lógica se aplica a outros nichos.
                         </p>
                     </div>

@@ -382,6 +382,12 @@ p {
     align-items: center;
     justify-content: center;
   }
+  .demo-grid {
+    align-items: center;
+  }
+  .demo-grid > div:last-child {
+    justify-self: center;
+  }
   .hero-cards {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1.5rem;

@@ -315,23 +315,75 @@ const InboxView = () => (
     </div>
 );
 
-const AnalyticsView = () => (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '1.5rem' }}>
-        {[
-            { label: 'Vendas Totais', value: 'R$ 45.200', change: '+12%' },
-            { label: 'Leads Qualificados', value: '128', change: '+24%' },
-            { label: 'Taxa de Conversão', value: '3.2%', change: '+0.8%' },
-        ].map((stat, i) => (
-            <div key={i} style={{ background: 'white', padding: '1.5rem', borderRadius: '0.5rem', border: '1px solid #e5e7eb' }}>
-                <div style={{ fontSize: '0.875rem', color: '#6b7280', marginBottom: '0.5rem' }}>{stat.label}</div>
-                <div style={{ fontSize: '2rem', fontWeight: 700, color: '#111827', marginBottom: '0.5rem' }}>{stat.value}</div>
-                <div style={{ fontSize: '0.875rem', color: '#10b981', fontWeight: 500 }}>{stat.change} vs mês anterior</div>
+const AnalyticsView = () => {
+    const stats = [
+        { label: 'Vendas Totais', value: 'R$ 45.200', change: '+12%' },
+        { label: 'Leads Qualificados', value: '128', change: '+24%' },
+        { label: 'Taxa de Conversão', value: '3.2%', change: '+0.8%' },
+    ];
+
+    return (
+        <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+            gap: '1.5rem',
+            alignItems: 'stretch'
+        }}>
+            {stats.map((stat, i) => (
+                <div
+                    key={i}
+                    style={{
+                        background: 'linear-gradient(145deg, #ffffff, #f9fafb)',
+                        padding: '1.5rem',
+                        borderRadius: '0.75rem',
+                        border: '1px solid #e5e7eb',
+                        boxShadow: '0 10px 30px -18px rgba(0,0,0,0.2)',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: '0.65rem'
+                    }}
+                >
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                        <span style={{ fontSize: '0.85rem', fontWeight: 700, color: '#1f2937', letterSpacing: '0.01em' }}>
+                            {stat.label}
+                        </span>
+                        <span style={{
+                            fontSize: '0.8rem',
+                            fontWeight: 700,
+                            color: '#0f766e',
+                            background: 'rgba(16, 185, 129, 0.12)',
+                            border: '1px solid rgba(16, 185, 129, 0.3)',
+                            borderRadius: '999px',
+                            padding: '0.2rem 0.55rem'
+                        }}>
+                            {stat.change}
+                        </span>
+                    </div>
+                    <div style={{ fontSize: '2.3rem', fontWeight: 800, color: '#111827', lineHeight: 1 }}>
+                        {stat.value}
+                    </div>
+                    <div style={{ fontSize: '0.9rem', color: '#6b7280' }}>
+                        vs mês anterior
+                    </div>
+                </div>
+            ))}
+
+            <div style={{
+                gridColumn: '1 / -1',
+                background: 'white',
+                height: '300px',
+                borderRadius: '0.75rem',
+                border: '1px solid #e5e7eb',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: '#9ca3af',
+                boxShadow: '0 10px 30px -18px rgba(0,0,0,0.2)'
+            }}>
+                Gráfico de Performance (Mockup)
             </div>
-        ))}
-        <div style={{ gridColumn: '1 / -1', background: 'white', height: '300px', borderRadius: '0.5rem', border: '1px solid #e5e7eb', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#9ca3af' }}>
-            Gráfico de Performance (Mockup)
         </div>
-    </div>
-);
+    );
+};
 
 export default CRMModal;
