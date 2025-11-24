@@ -102,13 +102,14 @@ const CRMModal = ({ isOpen, onClose }) => {
                         <div className="crm-main">
                             {/* Header */}
                             <header style={{
-                                height: '64px',
+                                height: isMobile ? '56px' : '64px',
                                 background: 'white',
                                 borderBottom: '1px solid #e5e7eb',
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'space-between',
-                                padding: '0 clamp(1rem, 3vw, 2rem)'
+                                gap: '0.75rem',
+                                padding: isMobile ? '0 0.75rem' : '0 clamp(1rem, 3vw, 2rem)'
                             }}>
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                                     <button
@@ -125,24 +126,37 @@ const CRMModal = ({ isOpen, onClose }) => {
                                     </h3>
                                 </div>
 
-                                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                                <div style={{ display: 'flex', alignItems: 'center', gap: isMobile ? '0.4rem' : '0.75rem' }}>
                                     <button
                                         onClick={onClose}
-                                        style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', border: '1px solid #e5e7eb', background: '#f9fafb', color: '#111827', borderRadius: '0.5rem', padding: '0.4rem 0.7rem', fontWeight: 600, cursor: 'pointer' }}
+                                        style={{
+                                            display: 'inline-flex',
+                                            alignItems: 'center',
+                                            gap: '0.35rem',
+                                            border: '1px solid #e5e7eb',
+                                            background: '#f9fafb',
+                                            color: '#111827',
+                                            borderRadius: '0.5rem',
+                                            padding: isMobile ? '0.3rem 0.45rem' : '0.4rem 0.7rem',
+                                            fontWeight: 600,
+                                            cursor: 'pointer',
+                                            fontSize: isMobile ? '0.82rem' : '0.95rem'
+                                        }}
                                     >
                                         <ArrowLeft size={16} /> Voltar
                                     </button>
                                     <div style={{ position: 'relative' }}>
-                                        <Search size={20} color="#9ca3af" style={{ position: 'absolute', left: '0.75rem', top: '50%', transform: 'translateY(-50%)' }} />
+                                        <Search size={18} color="#9ca3af" style={{ position: 'absolute', left: '0.65rem', top: '50%', transform: 'translateY(-50%)' }} />
                                         <input
                                             type="text"
                                             placeholder="Buscar..."
                                             style={{
-                                                padding: '0.5rem 0.75rem 0.5rem 2.5rem',
+                                                padding: isMobile ? '0.4rem 0.6rem 0.4rem 2rem' : '0.5rem 0.75rem 0.5rem 2.5rem',
                                                 borderRadius: '0.5rem',
                                                 border: '1px solid #e5e7eb',
                                                 background: '#f9fafb',
-                                                minWidth: '180px'
+                                                minWidth: isMobile ? '120px' : '180px',
+                                                fontSize: isMobile ? '0.85rem' : '0.95rem'
                                             }}
                                         />
                                     </div>
@@ -156,7 +170,7 @@ const CRMModal = ({ isOpen, onClose }) => {
                             <div className="crm-content">
                                 {activeTab === 'kanban' && <KanbanBoard />}
                                 {activeTab === 'inbox' && <InboxView />}
-                                {activeTab === 'analytics' && <AnalyticsView />}
+                                {activeTab === 'analytics' && <AnalyticsView isMobile={isMobile} />}
                             </div>
 
                             {/* Mobile tab bar */}
@@ -315,7 +329,7 @@ const InboxView = () => (
     </div>
 );
 
-const AnalyticsView = () => {
+const AnalyticsView = ({ isMobile }) => {
     const stats = [
         { label: 'Vendas Totais', value: 'R$ 45.200', change: '+12%' },
         { label: 'Leads Qualificados', value: '128', change: '+24%' },
@@ -325,8 +339,8 @@ const AnalyticsView = () => {
     return (
         <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-            gap: '1.5rem',
+            gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(220px, 1fr))',
+            gap: isMobile ? '1rem' : '1.5rem',
             alignItems: 'stretch'
         }}>
             {stats.map((stat, i) => (
@@ -334,13 +348,13 @@ const AnalyticsView = () => {
                     key={i}
                     style={{
                         background: 'linear-gradient(145deg, #ffffff, #f9fafb)',
-                        padding: '1.5rem',
+                        padding: isMobile ? '1.1rem' : '1.5rem',
                         borderRadius: '0.75rem',
                         border: '1px solid #e5e7eb',
                         boxShadow: '0 10px 30px -18px rgba(0,0,0,0.2)',
                         display: 'flex',
                         flexDirection: 'column',
-                        gap: '0.65rem'
+                        gap: '0.55rem'
                     }}
                 >
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
@@ -354,15 +368,16 @@ const AnalyticsView = () => {
                             background: 'rgba(16, 185, 129, 0.12)',
                             border: '1px solid rgba(16, 185, 129, 0.3)',
                             borderRadius: '999px',
-                            padding: '0.2rem 0.55rem'
+                            padding: isMobile ? '0.15rem 0.45rem' : '0.2rem 0.55rem',
+                            fontSize: isMobile ? '0.75rem' : '0.8rem'
                         }}>
                             {stat.change}
                         </span>
                     </div>
-                    <div style={{ fontSize: '2.3rem', fontWeight: 800, color: '#111827', lineHeight: 1 }}>
+                    <div style={{ fontSize: isMobile ? '2rem' : '2.3rem', fontWeight: 800, color: '#111827', lineHeight: 1.05 }}>
                         {stat.value}
                     </div>
-                    <div style={{ fontSize: '0.9rem', color: '#6b7280' }}>
+                    <div style={{ fontSize: isMobile ? '0.85rem' : '0.9rem', color: '#6b7280' }}>
                         vs mês anterior
                     </div>
                 </div>
@@ -371,7 +386,7 @@ const AnalyticsView = () => {
             <div style={{
                 gridColumn: '1 / -1',
                 background: 'white',
-                height: '300px',
+                height: isMobile ? '220px' : '300px',
                 borderRadius: '0.75rem',
                 border: '1px solid #e5e7eb',
                 display: 'flex',
