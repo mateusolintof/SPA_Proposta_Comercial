@@ -75,13 +75,7 @@ const FlowDiagram = () => {
                 </div>
 
                 {/* Branch Flows */}
-                <div style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-                    gap: '2rem',
-                    maxWidth: '900px',
-                    margin: '0 auto'
-                }}>
+                <div className="layout-grid cols-2 align-start" style={{ maxWidth: '900px', margin: '0 auto' }}>
                     {/* Follow-up Branch */}
                     <motion.div
                         initial={{ opacity: 0, x: -20 }}

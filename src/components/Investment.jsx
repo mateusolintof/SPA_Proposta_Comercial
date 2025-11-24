@@ -21,7 +21,7 @@ const Investment = () => {
                     <p>Tudo o que você precisa para escalar sua operação comercial.</p>
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', alignItems: 'start' }}>
+                <div className="layout-grid cols-2 align-start">
                     {/* Deliverables */}
                     <div>
                         <h3 style={{ fontSize: '1.5rem', marginBottom: '2rem' }}>O que está incluso:</h3>

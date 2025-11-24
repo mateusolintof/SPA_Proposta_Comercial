@@ -57,11 +57,7 @@ const Solutions = () => {
                     </p>
                 </div>
 
-                <div style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-                    gap: '1.5rem'
-                }}>
+                <div className="layout-grid cols-2 cols-4 align-start">
                     {solutions.map((solution, index) => (
                         <motion.div
                             key={index}

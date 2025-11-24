@@ -15,8 +15,8 @@ const ROICalculator = () => {
     return (
         <section className="section" style={{ background: 'linear-gradient(to bottom, var(--color-bg), var(--color-bg-secondary))' }}>
             <div className="container">
-                <div style={{ display: 'flex', gap: '4rem', flexWrap: 'wrap', alignItems: 'center' }}>
-                    <div style={{ flex: 1, minWidth: '300px' }}>
+                <div className="layout-grid cols-2 align-start">
+                    <div style={{ flex: 1, minWidth: 0 }}>
                         <div style={{
                             display: 'inline-flex',
                             alignItems: 'center',
@@ -81,7 +81,7 @@ const ROICalculator = () => {
                         </div>
                     </div>
 
-                    <div style={{ flex: 1, minWidth: '300px' }}>
+                    <div style={{ flex: 1, minWidth: 0 }}>
                         <div className="glass-panel" style={{ padding: '2rem', position: 'relative', overflow: 'hidden' }}>
                             <div style={{
                                 position: 'absolute',

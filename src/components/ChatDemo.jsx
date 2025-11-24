@@ -8,15 +8,22 @@ const ChatDemo = () => {
     ]);
     const [isTyping, setIsTyping] = useState(false);
     const [simulationStarted, setSimulationStarted] = useState(false);
-    const messagesEndRef = useRef(null);
+    const messagesContainerRef = useRef(null);
 
-    const scrollToBottom = () => {
-        messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    const scrollToBottom = (behavior = 'auto') => {
+        const container = messagesContainerRef.current;
+        if (!container) return;
+
+        container.scrollTo({
+            top: container.scrollHeight,
+            behavior
+        });
     };
 
     useEffect(() => {
-        scrollToBottom();
-    }, [messages, isTyping]);
+        // Keep the conversation pinned to the end without reposicionando a página inteira
+        scrollToBottom(simulationStarted ? 'smooth' : 'auto');
+    }, [messages, isTyping, simulationStarted]);
 
     const script = [
         {
@@ -96,14 +103,9 @@ const ChatDemo = () => {
 
                 </div>
 
-                <div style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-                    gap: '2.5rem',
-                    alignItems: 'start'
-                }}>
+                <div className="layout-grid cols-2 align-start">
                     {/* Features List */}
-                    <div style={{ flex: 1, minWidth: '300px' }}>
+                    <div style={{ flex: 1, minWidth: 0 }}>
                         {[
                             "Respostas em menos de 2 segundos",
                             "Conversa natural e contextualizada",
@@ -133,15 +135,17 @@ const ChatDemo = () => {
 
                     {/* Phone Mockup */}
                     <div style={{
-                        width: 'min(100%, 360px)',
-                        height: 'clamp(520px, 75vh, 640px)',
+                        width: '100%',
+                        maxWidth: '360px',
+                        minHeight: '520px',
                         background: '#000',
                         borderRadius: '40px',
                         padding: 'clamp(10px, 3vw, 14px)',
                         boxShadow: '0 20px 50px -10px rgba(0,0,0,0.5)',
                         border: '4px solid #333',
                         position: 'relative',
-                        justifySelf: 'center'
+                        justifySelf: 'center',
+                        margin: '0 auto'
                     }}>
                         {/* Screen */}
                         <div style={{
@@ -175,7 +179,9 @@ const ChatDemo = () => {
                             </div>
 
                             {/* Messages Area */}
-                            <div style={{
+                            <div
+                                ref={messagesContainerRef}
+                                style={{
                                 flex: 1,
                                 padding: '1rem',
                                 overflowY: 'auto',
@@ -259,7 +265,6 @@ const ChatDemo = () => {
                                         <span className="typing-dot" style={{ width: '6px', height: '6px', background: '#667781', borderRadius: '50%', animation: 'typing 1.4s infinite ease-in-out both 0.4s' }}></span>
                                     </motion.div>
                                 )}
-                                <div ref={messagesEndRef} />
                             </div>
 
                             {/* Input Area */}
