@@ -113,9 +113,9 @@ const CRMModal = ({ isOpen, onClose }) => {
                             }}>
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                                     <button
-                                    className="crm-menu-btn"
-                                    aria-label="Abrir menu"
-                                    onClick={() => setMobileNavOpen(true)}
+                                        className="crm-menu-btn"
+                                        aria-label="Abrir menu"
+                                        onClick={() => setMobileNavOpen(true)}
                                     >
                                         <Menu size={20} />
                                     </button>
@@ -358,7 +358,7 @@ const AnalyticsView = ({ isMobile }) => {
                     }}
                 >
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                        <span style={{ fontSize: '0.85rem', fontWeight: 700, color: '#1f2937', letterSpacing: '0.01em' }}>
+                        <span style={{ fontWeight: 700, color: '#1f2937', letterSpacing: '0.01em' }}>
                             {stat.label}
                         </span>
                         <span style={{

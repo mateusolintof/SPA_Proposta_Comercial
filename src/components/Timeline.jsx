@@ -1,4 +1,3 @@
-```
 import React, { useState } from 'react';
 import { ArrowRight, X, CheckCircle2, FileText } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -71,13 +70,13 @@ const Timeline = () => {
 
                 <div className="layout-grid cols-4" style={{ gap: '1.5rem' }}>
                     {phases.map((phase) => (
-                        <motion.div 
-                            key={phase.id} 
-                            className="glass-panel" 
+                        <motion.div
+                            key={phase.id}
+                            className="glass-panel"
                             whileHover={{ y: -5 }}
-                            style={{ 
-                                padding: '2rem', 
-                                display: 'flex', 
+                            style={{
+                                padding: '2rem',
+                                display: 'flex',
                                 flexDirection: 'column',
                                 alignItems: 'flex-start',
                                 textAlign: 'left',
@@ -88,36 +87,36 @@ const Timeline = () => {
                             }}
                             onClick={() => setSelectedPhase(phase)}
                         >
-                            <div style={{ 
+                            <div style={{
                                 color: 'var(--color-primary)', // Brand Green
-                                fontWeight: 800, 
-                                fontSize: '0.9rem', 
+                                fontWeight: 800,
+                                fontSize: '0.9rem',
                                 marginBottom: '0.5rem',
                                 textTransform: 'uppercase',
                                 letterSpacing: '0.05em'
                             }}>
                                 FASE {phase.id}
                             </div>
-                            <h3 style={{ 
-                                fontSize: '1.25rem', 
-                                fontWeight: 700, 
-                                color: 'var(--color-text)', 
-                                marginBottom: '0.75rem' 
+                            <h3 style={{
+                                fontSize: '1.25rem',
+                                fontWeight: 700,
+                                color: 'var(--color-text)',
+                                marginBottom: '0.75rem'
                             }}>
                                 {phase.title}
                             </h3>
-                            <p style={{ 
-                                fontSize: '0.95rem', 
-                                color: 'var(--color-text-muted)', 
+                            <p style={{
+                                fontSize: '0.95rem',
+                                color: 'var(--color-text-muted)',
                                 marginBottom: '1.5rem',
                                 lineHeight: 1.5
                             }}>
                                 {phase.description}
                             </p>
-                            <div style={{ 
-                                marginTop: 'auto', 
-                                display: 'flex', 
-                                alignItems: 'center', 
+                            <div style={{
+                                marginTop: 'auto',
+                                display: 'flex',
+                                alignItems: 'center',
                                 gap: '0.25rem',
                                 color: 'var(--color-primary)',
                                 fontWeight: 700,
@@ -174,7 +173,7 @@ const Timeline = () => {
                                 <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--color-primary)', margin: 0 }}>
                                     {selectedPhase.modalTitle}
                                 </h3>
-                                <button 
+                                <button
                                     onClick={() => setSelectedPhase(null)}
                                     style={{ background: 'transparent', border: 'none', cursor: 'pointer', color: 'var(--color-text-muted)' }}
                                 >
@@ -184,10 +183,10 @@ const Timeline = () => {
 
                             {/* Content */}
                             <div style={{ padding: '2rem' }}>
-                                <div style={{ 
-                                    background: 'var(--color-bg)', 
-                                    padding: '1rem', 
-                                    borderRadius: '0.5rem', 
+                                <div style={{
+                                    background: 'var(--color-bg)',
+                                    padding: '1rem',
+                                    borderRadius: '0.5rem',
                                     marginBottom: '2rem',
                                     border: '1px solid var(--color-border)',
                                     color: 'var(--color-text)'
@@ -202,9 +201,9 @@ const Timeline = () => {
 
                                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                                     {selectedPhase.deliverables.map((item, index) => (
-                                        <div key={index} style={{ 
-                                            display: 'flex', 
-                                            alignItems: 'center', 
+                                        <div key={index} style={{
+                                            display: 'flex',
+                                            alignItems: 'center',
                                             gap: '0.75rem',
                                             padding: '0.75rem',
                                             border: '1px solid var(--color-border)',
@@ -228,4 +227,3 @@ const Timeline = () => {
 };
 
 export default Timeline;
-```
