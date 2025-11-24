@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Bot, Zap, BarChart3 } from 'lucide-react';
 
 const Hero = () => {
-  const logoSrc = '/Logo 2-07.png'; // colocar este arquivo em /public
+  const logoSrc = '/Logo Principal-07.png'; // colocar este arquivo em /public
 
   return (
     <section className="section" style={{ minHeight: '90vh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden' }}>
@@ -80,13 +80,11 @@ const Hero = () => {
             transition={{ delay: 0.15, duration: 0.7 }}
             className="hero-logo-wrap"
           >
-            <div className="glass-panel" style={{ padding: '1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <img
-                src={logoSrc}
-                alt="convert A.I"
-                style={{ width: '100%', maxWidth: '420px', height: 'auto', objectFit: 'contain' }}
-              />
-            </div>
+            <img
+              src={logoSrc}
+              alt="convert A.I"
+              style={{ width: '100%', maxWidth: '720px', height: 'auto', objectFit: 'contain' }}
+            />
           </motion.div>
         </div>
 
@@ -102,8 +100,7 @@ const Hero = () => {
             {
               icon: BarChart3,
               label: 'Sistema com Atendimento SDR + Pós-venda + CRM de Gestão',
-              value: null,
-              wide: true
+              value: null
             },
           ].map((item, index) => (
             <div
@@ -113,9 +110,8 @@ const Hero = () => {
                 padding: '1.5rem',
                 textAlign: 'center',
                 width: '100%',
-                maxWidth: item.wide ? '100%' : '260px',
-                gridColumn: item.wide ? '1 / -1' : 'auto',
-                justifySelf: item.wide ? 'stretch' : 'center'
+                maxWidth: '260px',
+                justifySelf: 'center'
               }}
             >
               <item.icon size={32} style={{ color: 'var(--color-primary)', marginBottom: '0.5rem' }} />
@@ -123,12 +119,12 @@ const Hero = () => {
                 <div style={{ fontSize: '1.5rem', fontWeight: 700, color: 'var(--color-text)' }}>{item.value}</div>
               )}
               <div style={{
-                fontSize: item.wide ? '1rem' : '0.9rem',
+                fontSize: '0.9rem',
                 color: 'var(--color-text-muted)',
                 lineHeight: 1.35,
-                fontWeight: item.wide ? 700 : 500,
-                maxWidth: item.wide ? '520px' : '100%',
-                margin: item.wide ? '0 auto' : undefined
+                fontWeight: 600,
+                maxWidth: '520px',
+                margin: '0 auto'
               }}>
                 {item.label}
               </div>

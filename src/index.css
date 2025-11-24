@@ -339,8 +339,7 @@ p {
 }
 
 .hero-logo-wrap {
-  max-width: 520px;
-  margin: 0 auto;
+  display: none;
 }
 
 .hero-cards {
@@ -376,9 +375,12 @@ p {
     gap: 3rem;
   }
   .hero-logo-wrap {
-    max-width: 540px;
+    display: flex;
+    max-width: 720px;
     justify-self: center;
     width: 100%;
+    align-items: center;
+    justify-content: center;
   }
   .hero-cards {
     grid-template-columns: repeat(3, minmax(0, 1fr));
