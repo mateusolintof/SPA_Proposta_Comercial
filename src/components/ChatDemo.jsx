@@ -93,7 +93,7 @@ const ChatDemo = () => {
                         letterSpacing: '-0.01em'
                     }}>
                         <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--color-primary)', display: 'block' }}></span>
-                        <span style={{ fontSize: '0.9rem' }}>Conversa Natural e Contextualizada como um humano conversaria</span>
+                        <span style={{ fontSize: '0.9rem' }}>Demonstração em 30 segundos</span>
                     </div>
                     <h2 style={{ textAlign: 'center' }}>Atendimento via WhatsApp</h2>
                     <p style={{ textAlign: 'center', maxWidth: '560px', marginBottom: '0.75rem' }}>
@@ -106,7 +106,7 @@ const ChatDemo = () => {
                     {/* Features List */}
                     <div style={{ flex: 1, minWidth: 0, paddingRight: '0.25rem' }}>
                         {[
-                            "Conversa natural e contextualizada",
+                            "Conversa natural e contextualizada como um humano conversaria",
                             "Integração com agenda e sistemas",
                             "Base de conhecimento personalizada",
                             "Disponível 24 horas, 7 dias por semana"

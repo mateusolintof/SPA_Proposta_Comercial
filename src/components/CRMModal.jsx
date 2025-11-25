@@ -362,7 +362,7 @@ const AnalyticsView = ({ isMobile }) => {
                             {stat.label}
                         </span>
                         <span style={{
-                            fontSize: '0.8rem',
+
                             fontWeight: 700,
                             color: '#0f766e',
                             background: 'rgba(16, 185, 129, 0.12)',

@@ -2,6 +2,110 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { MessageSquareText, PhoneOutgoing, Heart, LayoutDashboard } from 'lucide-react';
 
+const SolutionCard = ({ solution, index }) => {
+    const [mousePosition, setMousePosition] = React.useState({ x: 0, y: 0 });
+    const [isHovering, setIsHovering] = React.useState(false);
+
+    const handleMouseMove = (e) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        setMousePosition({
+            x: e.clientX - rect.left,
+            y: e.clientY - rect.top,
+        });
+    };
+
+    return (
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.1 }}
+            viewport={{ once: true }}
+            className="glass-panel"
+            onMouseMove={handleMouseMove}
+            onMouseEnter={() => setIsHovering(true)}
+            onMouseLeave={() => setIsHovering(false)}
+            style={{
+                padding: '2rem',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '1rem',
+                position: 'relative',
+                overflow: 'hidden',
+                background: 'white'
+            }}
+        >
+            {/* Spotlight Effect */}
+            <div
+                style={{
+                    position: 'absolute',
+                    inset: 0,
+                    background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(${parseInt(solution.color.slice(1, 3), 16)}, ${parseInt(solution.color.slice(3, 5), 16)}, ${parseInt(solution.color.slice(5, 7), 16)}, 0.06), transparent 40%)`,
+                    opacity: isHovering ? 1 : 0,
+                    transition: 'opacity 0.3s',
+                    pointerEvents: 'none',
+                    zIndex: 0
+                }}
+            />
+
+            <div style={{ position: 'relative', zIndex: 1 }}>
+                <div style={{
+                    width: '56px',
+                    height: '56px',
+                    borderRadius: '12px',
+                    background: `rgba(${parseInt(solution.color.slice(1, 3), 16)}, ${parseInt(solution.color.slice(3, 5), 16)}, ${parseInt(solution.color.slice(5, 7), 16)}, 0.1)`,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginBottom: '1rem'
+                }}>
+                    <solution.icon size={28} color={solution.color} />
+                </div>
+
+                <h3 style={{
+                    fontSize: '1.25rem',
+                    fontWeight: 700,
+                    color: 'var(--color-text)',
+                    margin: '0 0 0.5rem 0'
+                }}>
+                    {solution.title}
+                </h3>
+
+                <p style={{
+                    fontSize: '0.95rem',
+                    color: 'var(--color-text-muted)',
+                    lineHeight: 1.6,
+                    margin: '0 0 1rem 0'
+                }}>
+                    {solution.description}
+                </p>
+
+                <div style={{
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    gap: '0.5rem',
+                    marginTop: 'auto'
+                }}>
+                    {solution.highlights.map((highlight, i) => (
+                        <span
+                            key={i}
+                            style={{
+                                fontSize: '0.75rem',
+                                padding: '0.25rem 0.75rem',
+                                background: 'var(--color-bg)',
+                                borderRadius: '1rem',
+                                color: 'var(--color-text-muted)',
+                                border: '1px solid var(--color-border)'
+                            }}
+                        >
+                            {highlight}
+                        </span>
+                    ))}
+                </div>
+            </div>
+        </motion.div>
+    );
+};
+
 const Solutions = () => {
     const solutions = [
         {
@@ -59,74 +163,7 @@ const Solutions = () => {
 
                 <div className="layout-grid cols-2 cols-4 align-start">
                     {solutions.map((solution, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: index * 0.1 }}
-                            viewport={{ once: true }}
-                            className="glass-panel"
-                            style={{
-                                padding: '2rem',
-                                display: 'flex',
-                                flexDirection: 'column',
-                                gap: '1rem'
-                            }}
-                        >
-                            <div style={{
-                                width: '56px',
-                                height: '56px',
-                                borderRadius: '12px',
-                                background: `rgba(${parseInt(solution.color.slice(1, 3), 16)}, ${parseInt(solution.color.slice(3, 5), 16)}, ${parseInt(solution.color.slice(5, 7), 16)}, 0.1)`,
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center'
-                            }}>
-                                <solution.icon size={28} color={solution.color} />
-                            </div>
-
-                            <h3 style={{
-                                fontSize: '1.25rem',
-                                fontWeight: 700,
-                                color: 'var(--color-text)',
-                                margin: 0
-                            }}>
-                                {solution.title}
-                            </h3>
-
-                            <p style={{
-                                fontSize: '0.95rem',
-                                color: 'var(--color-text-muted)',
-                                lineHeight: 1.6,
-                                margin: 0
-                            }}>
-                                {solution.description}
-                            </p>
-
-                            <div style={{
-                                display: 'flex',
-                                flexWrap: 'wrap',
-                                gap: '0.5rem',
-                                marginTop: 'auto',
-                                paddingTop: '1rem'
-                            }}>
-                                {solution.highlights.map((highlight, i) => (
-                                    <span
-                                        key={i}
-                                        style={{
-                                            fontSize: '0.75rem',
-                                            padding: '0.25rem 0.75rem',
-                                            background: 'var(--color-bg)',
-                                            borderRadius: '1rem',
-                                            color: 'var(--color-text-muted)',
-                                            border: '1px solid var(--color-border)'
-                                        }}
-                                    >
-                                        {highlight}
-                                    </span>
-                                ))}
-                            </div>
-                        </motion.div>
+                        <SolutionCard key={index} solution={solution} index={index} />
                     ))}
                 </div>
             </div>
