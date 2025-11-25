@@ -80,10 +80,12 @@ const Investment = () => {
                                     INVESTIMENTO ÚNICO
                                 </div>
                                 <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.5rem' }}>
-                                    <span style={{ fontSize: '3.5rem', fontWeight: 800, color: 'white', fontFamily: 'monospace', letterSpacing: '-0.05em' }}>R$ 5k</span>
+                                    <span style={{ fontSize: '3.5rem', fontWeight: 800, color: 'white', fontFamily: 'monospace', letterSpacing: '-0.05em' }}>R$ 5.000</span>
                                 </div>
-                                <div style={{ color: '#a1a1aa', fontSize: '0.9rem' }}>Desenvolvimento e Implementação do Sistema</div>
-                                <div style={{ color: '#71717a', fontSize: '0.85rem', marginTop: '0.75rem' }}>
+                                <div style={{ color: '#e4e4e7', fontSize: '1rem', fontWeight: 500, marginTop: '0.75rem' }}>
+                                    Desenvolvimento e Implementação do Sistema
+                                </div>
+                                <div style={{ color: '#71717a', fontSize: '0.8rem', marginTop: '0.75rem', lineHeight: 1.5 }}>
                                     Condições de pagamento:
                                     <ul style={{ marginTop: '0.5rem', paddingLeft: '1.25rem', marginBottom: 0 }}>
                                         <li>50% à vista e 50% na entrega do projeto</li>
@@ -92,7 +94,7 @@ const Investment = () => {
                                 </div>
                             </div>
 
-                            <div style={{ marginBottom: '2.5rem', padding: '1.5rem', background: 'rgba(255,255,255,0.03)', borderRadius: '1rem', border: '1px solid rgba(255,255,255,0.05)' }}>
+                            <div style={{ marginBottom: '3rem', padding: '1.5rem', background: 'rgba(255,255,255,0.03)', borderRadius: '1rem', border: '1px solid rgba(255,255,255,0.05)' }}>
                                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
                                     <span style={{ color: '#e4e4e7', fontWeight: 600 }}>Recorrência Mensal</span>
                                     <span style={{ color: 'white', fontWeight: 700, fontSize: '1.25rem' }}>R$ 2.000</span>
@@ -102,7 +104,18 @@ const Investment = () => {
                                 </div>
                             </div>
 
-                            <button className="btn btn-primary" style={{ width: '100%', justifyContent: 'center', height: '3.5rem', fontSize: '1.1rem' }}>
+                            <button
+                                className="btn btn-primary"
+                                style={{
+                                    width: '100%',
+                                    justifyContent: 'center',
+                                    height: '3.75rem',
+                                    fontSize: '1.1rem',
+                                    fontWeight: 600,
+                                    borderRadius: '999px',
+                                    boxShadow: '0 20px 40px rgba(0, 0, 0, 0.45)'
+                                }}
+                            >
                                 Aprovar Proposta
                             </button>
                             <p style={{ textAlign: 'center', color: '#52525b', fontSize: '0.8rem', marginTop: '1rem' }}>
