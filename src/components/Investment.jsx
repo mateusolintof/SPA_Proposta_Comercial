@@ -116,12 +116,12 @@ const Investment = () => {
                             </div>
 
                             <div style={{ marginBottom: '3rem', padding: '1.5rem', background: 'rgba(255,255,255,0.03)', borderRadius: '1rem', border: '1px solid rgba(255,255,255,0.05)' }}>
-                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
-                                    <span style={{ color: '#e4e4e7', fontWeight: 600 }}>Recorrência Mensal</span>
-                                    <span style={{ color: 'white', fontWeight: 700, fontSize: '1.25rem' }}>R$ 2.000</span>
+                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem', gap: '1rem' }}>
+                                    <span style={{ color: '#e4e4e7', fontWeight: 600, whiteSpace: 'nowrap' }}>Mensalidade</span>
+                                    <span style={{ color: 'white', fontWeight: 700, fontSize: '1.25rem', whiteSpace: 'nowrap' }}>R$ 2.000</span>
                                 </div>
                                 <div style={{ color: '#71717a', fontSize: '0.85rem' }}>
-                                    Inclui servidores, manutenção e melhoria contínua da IA.
+                                    Inclui custos de servidores, banco de dados, suporte e melhoria contínua da IA.
                                 </div>
                             </div>
 
@@ -141,45 +141,10 @@ const Investment = () => {
                                     textTransform: 'uppercase',
                                     letterSpacing: '0.06em'
                                 }}
-                                onClick={() => setShowViability((prev) => !prev)}
+                                onClick={() => setShowViability(true)}
                             >
                                 Veja a Viabilidade do Projeto
                             </button>
-                            {showViability && (
-                                <div
-                                    style={{
-                                        marginTop: '1.75rem',
-                                        padding: '1.5rem',
-                                        background: 'rgba(15, 23, 42, 0.95)',
-                                        borderRadius: '1rem',
-                                        border: '1px solid rgba(148, 163, 184, 0.5)',
-                                        color: '#e5e7eb',
-                                        fontSize: '0.9rem'
-                                    }}
-                                >
-                                    <div style={{ fontWeight: 700, marginBottom: '0.5rem' }}>
-                                        Viabilidade financeira do projeto
-                                    </div>
-                                    <p style={{ marginBottom: '0.75rem', color: '#cbd5f5' }}>
-                                        Considerando {leads} leads/mês, ticket médio de {currency.format(ticket)} e uma conversão atual de {currentConv}% (benchmark saudável: 20–35%),
-                                        um aumento conservador de 50% na taxa de conversão com IA gera:
-                                    </p>
-                                    <ul style={{ marginLeft: '1.25rem', marginBottom: '0.75rem', listStyle: 'disc' }}>
-                                        <li>Receita atual estimada: {currency.format(currentRevenue)}/mês</li>
-                                        <li>Receita projetada com IA: {currency.format(projectedRevenue)}/mês</li>
-                                        <li>Receita extra com IA: {currency.format(extraRevenue)}/mês</li>
-                                        <li>
-                                            Mesmo descontando a recorrência de {currency.format(monthlyFee)}, sobra cerca de{' '}
-                                            <span style={{ fontWeight: 600 }}>{currency.format(netAfterFee)}</span> de ganho líquido por mês.
-                                        </li>
-                                    </ul>
-                                    <p style={{ marginBottom: 0, color: '#9ca3af' }}>
-                                        Isso significa que o investimento inicial de {currency.format(setupCost)} tende a se pagar em aproximadamente{' '}
-                                        <span style={{ fontWeight: 600 }}>{paybackDays} dias</span>, sem nem considerar a economia potencial de uma atendente
-                                        comercial em torno de {currency.format(monthlyFee)} por mês.
-                                    </p>
-                                </div>
-                            )}
                             <p style={{ textAlign: 'center', color: '#52525b', fontSize: '0.8rem', marginTop: '1rem' }}>
                                 *Taxa de juros aplicada ao contratante.
                             </p>
@@ -187,16 +152,125 @@ const Investment = () => {
                     </div>
                 </div>
             </div>
+            {showViability && (
+                <div
+                    style={{
+                        position: 'fixed',
+                        inset: 0,
+                        background: 'rgba(0,0,0,0.6)',
+                        zIndex: 60,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        padding: '1rem'
+                    }}
+                >
+                    <div
+                        style={{
+                            width: 'min(520px, 100%)',
+                            background: '#0b1221',
+                            borderRadius: '1.25rem',
+                            border: '1px solid rgba(255,255,255,0.12)',
+                            boxShadow: '0 25px 70px rgba(0,0,0,0.65)',
+                            padding: '1.75rem',
+                            color: '#e5e7eb',
+                            position: 'relative',
+                            maxHeight: '90vh',
+                            overflowY: 'auto'
+                        }}
+                    >
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+                            <div style={{ display: 'inline-flex', padding: '0.35rem 0.85rem', background: 'rgba(16, 185, 129, 0.12)', borderRadius: '999px', border: '1px solid rgba(16,185,129,0.25)', color: '#10b981', fontSize: '0.8rem', fontWeight: 700, letterSpacing: '0.05em' }}>
+                                Viabilidade
+                            </div>
+                            <button
+                                onClick={() => setShowViability(false)}
+                                style={{
+                                    background: 'transparent',
+                                    color: '#9ca3af',
+                                    border: '1px solid rgba(148,163,184,0.4)',
+                                    borderRadius: '999px',
+                                    padding: '0.35rem 0.9rem',
+                                    fontWeight: 600,
+                                    cursor: 'pointer'
+                                }}
+                            >
+                                Voltar
+                            </button>
+                        </div>
+
+                        <h3 style={{ color: 'white', marginBottom: '0.5rem', fontSize: '1.5rem' }}>Veja como o projeto se paga</h3>
+                        <p style={{ color: '#cbd5f5', marginBottom: '1.25rem', lineHeight: 1.5 }}>
+                            Com {leads} leads/mês, ticket médio de {currency.format(ticket)} e conversão atual de {currentConv}% (benchmark saudável),
+                            um aumento conservador de 50% na conversão com IA gera ganhos imediatos.
+                        </p>
+
+                        <div style={{ display: 'grid', gap: '0.85rem', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', marginBottom: '1.25rem' }}>
+                            <div style={{ padding: '0.9rem', borderRadius: '0.85rem', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>
+                                <div style={{ fontSize: '0.85rem', color: '#9ca3af' }}>Receita Atual</div>
+                                <div style={{ fontWeight: 700, color: 'white', fontSize: '1.1rem' }}>{currency.format(currentRevenue)}</div>
+                            </div>
+                            <div style={{ padding: '0.9rem', borderRadius: '0.85rem', background: 'rgba(16,185,129,0.08)', border: '1px solid rgba(16,185,129,0.15)' }}>
+                                <div style={{ fontSize: '0.85rem', color: '#10b981' }}>Receita com IA (+50%)</div>
+                                <div style={{ fontWeight: 800, color: '#10b981', fontSize: '1.1rem' }}>{currency.format(projectedRevenue)}</div>
+                            </div>
+                            <div style={{ padding: '0.9rem', borderRadius: '0.85rem', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>
+                                <div style={{ fontSize: '0.85rem', color: '#9ca3af' }}>Receita Extra</div>
+                                <div style={{ fontWeight: 700, color: 'white', fontSize: '1.1rem' }}>{currency.format(extraRevenue)}</div>
+                            </div>
+                            <div style={{ padding: '0.9rem', borderRadius: '0.85rem', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>
+                                <div style={{ fontSize: '0.85rem', color: '#9ca3af' }}>Payback Estimado</div>
+                                <div style={{ fontWeight: 700, color: 'white', fontSize: '1.1rem' }}>{paybackDays} dias</div>
+                            </div>
+                            <div style={{ padding: '0.9rem', borderRadius: '0.85rem', background: 'rgba(16,185,129,0.08)', border: '1px solid rgba(16,185,129,0.15)' }}>
+                                <div style={{ fontSize: '0.85rem', color: '#10b981' }}>Líquido Após Mensalidade</div>
+                                <div style={{ fontWeight: 800, color: '#10b981', fontSize: '1.1rem' }}>{currency.format(netAfterFee)}</div>
+                            </div>
+                        </div>
+
+                        <div style={{ color: '#9ca3af', fontSize: '0.95rem', lineHeight: 1.6, marginBottom: '1.25rem' }}>
+                            Mesmo após investir {currency.format(setupCost)} e pagar a mensalidade de {currency.format(monthlyFee)}, o ganho líquido
+                            mensal projeta {currency.format(netAfterFee)} apenas pelo aumento de conversão — sem contar a economia de substituir uma
+                            atendente comercial de {currency.format(monthlyFee)}.
+                        </div>
+
+                        <button
+                            onClick={() => setShowViability(false)}
+                            style={{
+                                width: '100%',
+                                justifyContent: 'center',
+                                height: '3rem',
+                                fontSize: '0.95rem',
+                                fontWeight: 700,
+                                borderRadius: '0.9rem',
+                                background: 'rgba(255,255,255,0.06)',
+                                color: '#e5e7eb',
+                                border: '1px solid rgba(148,163,184,0.5)',
+                                cursor: 'pointer'
+                            }}
+                        >
+                            Voltar
+                        </button>
+                    </div>
+                </div>
+            )}
 
             {/* Mobile Responsiveness Style Injection */}
             <style>{`
                 @media (max-width: 768px) {
                     .glass-panel-dark {
                         grid-template-columns: 1fr !important;
+                        border-radius: 1.25rem !important;
                     }
                     .glass-panel-dark > div:first-child {
                         border-right: none !important;
                         border-bottom: 1px solid rgba(255,255,255,0.1);
+                    }
+                    .glass-panel-dark > div {
+                        padding: 2.25rem !important;
+                    }
+                    .glass-panel-dark h3 {
+                        font-size: 1.45rem !important;
                     }
                 }
             `}</style>
