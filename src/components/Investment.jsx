@@ -126,21 +126,24 @@ const Investment = () => {
                             </div>
 
                             <button
-                                className="btn btn-primary"
+                                className="btn"
                                 style={{
                                     width: '100%',
                                     justifyContent: 'center',
-                                    height: '3.75rem',
-                                    fontSize: '1.1rem',
-                                    fontWeight: 600,
+                                    height: '3.25rem',
+                                    fontSize: '0.95rem',
+                                    fontWeight: 700,
                                     borderRadius: '999px',
-                                    boxShadow: '0 20px 40px rgba(0, 0, 0, 0.45)',
-                                    background: 'linear-gradient(135deg, #16a34a, #22c55e)',
-                                    borderColor: '#16a34a'
+                                    background: 'rgba(16, 185, 129, 0.1)',
+                                    color: '#10b981',
+                                    border: '1px solid rgba(16, 185, 129, 0.3)',
+                                    boxShadow: 'none',
+                                    textTransform: 'uppercase',
+                                    letterSpacing: '0.06em'
                                 }}
                                 onClick={() => setShowViability((prev) => !prev)}
                             >
-                                Ver como o projeto se paga
+                                Veja a Viabilidade do Projeto
                             </button>
                             {showViability && (
                                 <div
