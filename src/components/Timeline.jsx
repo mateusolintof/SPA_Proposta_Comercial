@@ -13,8 +13,8 @@ const Timeline = () => {
             modalTitle: 'Fase 1: Detalhamento',
             modalDescription: 'Alinhamento de regras de negócio e infraestrutura.',
             deliverables: [
-                'Documento de Arquitetura dos Fluxos (SDR e FAQ)',
-                'Configuração do Ambiente (WhatsApp Business API)',
+                'Pesquisa e Briefing',
+                'Arquitetura dos Fluxos (Agentes de IA)',
                 'Definição da Árvore de Decisão (Triagem)',
                 'Cronograma detalhado de implantação'
             ]
@@ -26,8 +26,7 @@ const Timeline = () => {
             modalTitle: 'Fase 2: Detalhamento',
             modalDescription: 'Construção dos agentes e conexão com sistemas.',
             deliverables: [
-                'Agente SDR e FAQ operacionais em ambiente de homologação',
-                'Módulo de integração com ERP (Leitura/Escrita)',
+                'Agente SDR operacional em ambiente de homologação',
                 'Setup do CRM com funil personalizado',
                 'Configuração das réguas de No-Show (D-2, D-1)'
             ]
