@@ -5,17 +5,26 @@ const Investment = () => {
 
     // Premissas da viabilidade
     const leads = 600;
-    const ticket = 150;
+    const ticket = 100;
     const currentConv = 25; // dentro do benchmark saudável 20–35%
     const upliftFactor = 1.5;
     const setupCost = 5000;
     const monthlyFee = 2000;
 
     const currentRevenue = leads * (currentConv / 100) * ticket;
-    const projectedRevenue = leads * ((currentConv * upliftFactor) / 100) * ticket;
+    const projectedConv = currentConv * upliftFactor;
+    const projectedRevenue = leads * (projectedConv / 100) * ticket;
     const extraRevenue = projectedRevenue - currentRevenue;
     const netAfterFee = extraRevenue - monthlyFee;
-    const paybackDays = Math.round((setupCost / extraRevenue) * 30);
+
+    // Payback considerando o ganho líquido mensal
+    const paybackMonths = netAfterFee > 0 ? setupCost / netAfterFee : Infinity;
+    const paybackDays = Math.round(paybackMonths * 30);
+
+    // Horizonte mínimo de 12 meses
+    const annualNetGain = netAfterFee * 12 - setupCost;
+    const totalInvestment = setupCost + monthlyFee * 12;
+    const annualRoi = totalInvestment > 0 ? (annualNetGain / totalInvestment) * 100 : 0;
 
     const currency = new Intl.NumberFormat('pt-BR', {
         style: 'currency',
@@ -201,43 +210,64 @@ const Investment = () => {
                         </div>
 
                         <h3 style={{ color: '#013117', marginBottom: '0.5rem', fontSize: '1.6rem' }}>Veja como o projeto se paga</h3>
-                        <p style={{ color: '#374151', marginBottom: '0.75rem', lineHeight: 1.6 }}>
-                            Hoje, com cerca de {leads} leads por mês, ticket médio de {currency.format(ticket)} e taxa de conversão em torno de {currentConv}%,
-                            o seu cenário atual gera aproximadamente {currency.format(currentRevenue)} em receita.
+                        <p style={{ color: '#374151', marginBottom: '0.5rem', lineHeight: 1.5 }}>
+                            Hoje: {leads} leads/mês · ticket {currency.format(ticket)} · conversão {currentConv}% → {currency.format(currentRevenue)}/mês.
                         </p>
-                        <p style={{ color: '#374151', marginBottom: '1.25rem', lineHeight: 1.6 }}>
-                            Com a estrutura de IA proposta, consideramos um aumento conservador de 50% na conversão. Isso leva sua receita estimada para
-                            {` `}{currency.format(projectedRevenue)}, gerando cerca de {currency.format(extraRevenue)} a mais por mês apenas aproveitando melhor os leads que você já tem.
+                        <p style={{ color: '#374151', marginBottom: '1rem', lineHeight: 1.5 }}>
+                            Com IA: +50% na conversão → {currency.format(projectedRevenue)}/mês.
                         </p>
 
-                        <div style={{ display: 'grid', gap: '0.85rem', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', marginBottom: '1.25rem' }}>
-                            <div style={{ padding: '0.9rem', borderRadius: '0.85rem', background: '#ffffff', border: '1px solid rgba(0,0,0,0.04)', boxShadow: '0 4px 10px rgba(0,0,0,0.04)' }}>
-                                <div style={{ fontSize: '0.85rem', color: '#6b7280' }}>Receita Atual</div>
-                                <div style={{ fontWeight: 700, color: '#0f172a', fontSize: '1.1rem' }}>{currency.format(currentRevenue)}</div>
-                            </div>
-                            <div style={{ padding: '0.9rem', borderRadius: '0.85rem', background: '#eef7ee', border: '1px solid rgba(1,49,23,0.12)' }}>
-                                <div style={{ fontSize: '0.85rem', color: '#013117' }}>Receita com IA (+50%)</div>
-                                <div style={{ fontWeight: 800, color: '#013117', fontSize: '1.1rem' }}>{currency.format(projectedRevenue)}</div>
-                            </div>
-                            <div style={{ padding: '0.9rem', borderRadius: '0.85rem', background: '#ffffff', border: '1px solid rgba(0,0,0,0.04)', boxShadow: '0 4px 10px rgba(0,0,0,0.04)' }}>
-                                <div style={{ fontSize: '0.85rem', color: '#6b7280' }}>Receita Extra</div>
-                                <div style={{ fontWeight: 700, color: '#0f172a', fontSize: '1.1rem' }}>{currency.format(extraRevenue)}</div>
-                            </div>
-                            <div style={{ padding: '0.9rem', borderRadius: '0.85rem', background: '#ffffff', border: '1px solid rgba(0,0,0,0.04)', boxShadow: '0 4px 10px rgba(0,0,0,0.04)' }}>
-                                <div style={{ fontSize: '0.85rem', color: '#6b7280' }}>Payback Estimado</div>
-                                <div style={{ fontWeight: 700, color: '#0f172a', fontSize: '1.1rem' }}>{paybackDays} dias</div>
-                            </div>
-                            <div style={{ padding: '0.9rem', borderRadius: '0.85rem', background: '#eef7ee', border: '1px solid rgba(1,49,23,0.12)' }}>
-                                <div style={{ fontSize: '0.85rem', color: '#013117' }}>Líquido Após Mensalidade</div>
-                                <div style={{ fontWeight: 800, color: '#013117', fontSize: '1.1rem' }}>{currency.format(netAfterFee)}</div>
-                            </div>
-                        </div>
+                        <div style={{ display: 'grid', gap: '0.85rem', marginBottom: '1.25rem' }}>
+                            <div
+                                style={{
+                                    display: 'grid',
+                                    gap: '0.85rem',
+                                    gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))'
+                                }}
+                            >
+                                {/* Situação atual */}
+                                <div style={{ padding: '0.9rem', borderRadius: '0.85rem', background: '#ffffff', border: '1px solid rgba(0,0,0,0.04)', boxShadow: '0 4px 10px rgba(0,0,0,0.04)' }}>
+                                    <div style={{ fontSize: '0.8rem', color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.35rem' }}>
+                                        Situação atual do salão
+                                    </div>
+                                    <div style={{ fontSize: '0.85rem', color: '#4b5563', marginBottom: '0.2rem' }}>
+                                        Conversão atual: <strong>{currentConv}%</strong>
+                                    </div>
+                                    <div style={{ fontWeight: 700, color: '#0f172a', fontSize: '1rem' }}>
+                                        Faturamento mensal: {currency.format(currentRevenue)}
+                                    </div>
+                                </div>
 
-                        <div style={{ color: '#374151', fontSize: '0.95rem', lineHeight: 1.6 }}>
-                            Na prática, o projeto tende a se pagar em cerca de {paybackDays} dias. Mesmo considerando o investimento inicial de
-                            {` `}{currency.format(setupCost)} e a mensalidade de {currency.format(monthlyFee)}, o ganho líquido estimado fica em torno de
-                            {` `}{currency.format(netAfterFee)} por mês apenas pelo aumento de conversão — sem contar a economia de substituir uma atendente
-                            comercial de {currency.format(monthlyFee)}.
+                                {/* Projeção com IA */}
+                                <div style={{ padding: '0.9rem', borderRadius: '0.85rem', background: '#eef7ee', border: '1px solid rgba(1,49,23,0.12)' }}>
+                                    <div style={{ fontSize: '0.8rem', color: '#013117', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.35rem' }}>
+                                        Projeção com IA
+                                    </div>
+                                    <div style={{ fontSize: '0.85rem', color: '#065f46', marginBottom: '0.2rem' }}>
+                                        Conversão estimada: <strong>{projectedConv}%</strong>
+                                    </div>
+                                    <div style={{ fontWeight: 800, color: '#013117', fontSize: '1rem' }}>
+                                        Faturamento mensal: {currency.format(projectedRevenue)}
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Resultado do projeto */}
+                            <div style={{ padding: '1rem', borderRadius: '0.9rem', background: '#ffffff', border: '1px solid rgba(0,0,0,0.06)', boxShadow: '0 4px 14px rgba(0,0,0,0.04)' }}>
+                                <div style={{ fontSize: '0.8rem', color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '0.4rem' }}>
+                                    Resultado do projeto (horizonte de 12 meses)
+                                </div>
+                                <div style={{ fontSize: '0.9rem', color: '#374151', lineHeight: 1.5 }}>
+                                    Ganho líquido mensal estimado: <strong>{currency.format(netAfterFee)}</strong>
+                                    <br />
+                                    Ganho líquido acumulado em 12 meses (já considerando setup e mensalidade):{' '}
+                                    <strong>{currency.format(annualNetGain)}</strong>
+                                    <br />
+                                    Payback estimado: <strong>{paybackDays} dias</strong> ({Math.ceil(paybackMonths)} meses, aproximadamente)
+                                    <br />
+                                    ROI em 12 meses sobre o investimento no projeto: <strong>{annualRoi.toFixed(0)}%</strong>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
