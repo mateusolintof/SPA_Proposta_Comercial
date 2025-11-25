@@ -25,16 +25,16 @@ function App() {
         backdropFilter: 'blur(10px)',
         borderBottom: '1px solid rgba(0,0,0,0.05)'
       }}>
-        <div className="container" style={{ height: '70px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <div className="container" style={{ height: '70px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <div style={{ fontWeight: 800, fontSize: '1.5rem', fontFamily: 'var(--font-display)', color: 'var(--color-primary)', letterSpacing: '-0.02em' }}>convert <span style={{ fontWeight: 800 }}>A.I</span></div>
-          <button
+          {/* <button
             className="btn btn-outline"
             onClick={() => setIsCRMOpen(true)}
             style={{ fontSize: '0.9rem', padding: '0.5rem 1rem' }}
           >
             <Layout size={16} />
             Ver CRM
-          </button>
+          </button> */}
         </div>
       </nav>
 
