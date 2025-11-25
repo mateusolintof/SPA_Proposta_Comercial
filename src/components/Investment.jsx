@@ -82,7 +82,7 @@ const Investment = () => {
                                 <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.5rem' }}>
                                     <span style={{ fontSize: '3.5rem', fontWeight: 800, color: 'white', fontFamily: 'monospace', letterSpacing: '-0.05em' }}>R$ 5k</span>
                                 </div>
-                                <div style={{ color: '#a1a1aa', fontSize: '0.9rem' }}>Implementação completa</div>
+                                <div style={{ color: '#a1a1aa', fontSize: '0.9rem' }}>Desenvolvimento e Implementação do Sistema</div>
                                 <div style={{ color: '#71717a', fontSize: '0.85rem', marginTop: '0.75rem' }}>
                                     Condições de pagamento:
                                     <ul style={{ marginTop: '0.5rem', paddingLeft: '1.25rem', marginBottom: 0 }}>
