@@ -201,9 +201,13 @@ const Investment = () => {
                         </div>
 
                         <h3 style={{ color: '#013117', marginBottom: '0.5rem', fontSize: '1.6rem' }}>Veja como o projeto se paga</h3>
+                        <p style={{ color: '#374151', marginBottom: '0.75rem', lineHeight: 1.6 }}>
+                            Hoje, com cerca de {leads} leads por mês, ticket médio de {currency.format(ticket)} e taxa de conversão em torno de {currentConv}%,
+                            o seu cenário atual gera aproximadamente {currency.format(currentRevenue)} em receita.
+                        </p>
                         <p style={{ color: '#374151', marginBottom: '1.25rem', lineHeight: 1.6 }}>
-                            Com {leads} leads/mês, ticket médio de {currency.format(ticket)} e conversão atual de {currentConv}% (benchmark saudável),
-                            um aumento conservador de 50% na conversão com IA gera ganhos imediatos.
+                            Com a estrutura de IA proposta, consideramos um aumento conservador de 50% na conversão. Isso leva sua receita estimada para
+                            {` `}{currency.format(projectedRevenue)}, gerando cerca de {currency.format(extraRevenue)} a mais por mês apenas aproveitando melhor os leads que você já tem.
                         </p>
 
                         <div style={{ display: 'grid', gap: '0.85rem', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', marginBottom: '1.25rem' }}>
@@ -230,9 +234,10 @@ const Investment = () => {
                         </div>
 
                         <div style={{ color: '#374151', fontSize: '0.95rem', lineHeight: 1.6 }}>
-                            Mesmo após investir {currency.format(setupCost)} e pagar a mensalidade de {currency.format(monthlyFee)}, o ganho líquido
-                            mensal projeta {currency.format(netAfterFee)} apenas pelo aumento de conversão — sem contar a economia de substituir uma
-                            atendente comercial de {currency.format(monthlyFee)}.
+                            Na prática, o projeto tende a se pagar em cerca de {paybackDays} dias. Mesmo considerando o investimento inicial de
+                            {` `}{currency.format(setupCost)} e a mensalidade de {currency.format(monthlyFee)}, o ganho líquido estimado fica em torno de
+                            {` `}{currency.format(netAfterFee)} por mês apenas pelo aumento de conversão — sem contar a economia de substituir uma atendente
+                            comercial de {currency.format(monthlyFee)}.
                         </div>
                     </div>
                 </div>
