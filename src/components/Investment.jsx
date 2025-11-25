@@ -1,6 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Investment = () => {
+    const [showViability, setShowViability] = useState(false);
+
+    // Premissas da viabilidade
+    const leads = 600;
+    const ticket = 150;
+    const currentConv = 25; // dentro do benchmark saudável 20–35%
+    const upliftFactor = 1.5;
+    const setupCost = 5000;
+    const monthlyFee = 2000;
+
+    const currentRevenue = leads * (currentConv / 100) * ticket;
+    const projectedRevenue = leads * ((currentConv * upliftFactor) / 100) * ticket;
+    const extraRevenue = projectedRevenue - currentRevenue;
+    const netAfterFee = extraRevenue - monthlyFee;
+    const paybackDays = Math.round((setupCost / extraRevenue) * 30);
+
+    const currency = new Intl.NumberFormat('pt-BR', {
+        style: 'currency',
+        currency: 'BRL'
+    });
+
     return (
         <section className="section" style={{ paddingTop: '5rem', paddingBottom: '5rem', position: 'relative' }}>
             <div className="container">
@@ -113,11 +134,49 @@ const Investment = () => {
                                     fontSize: '1.1rem',
                                     fontWeight: 600,
                                     borderRadius: '999px',
-                                    boxShadow: '0 20px 40px rgba(0, 0, 0, 0.45)'
+                                    boxShadow: '0 20px 40px rgba(0, 0, 0, 0.45)',
+                                    background: 'linear-gradient(135deg, #16a34a, #22c55e)',
+                                    borderColor: '#16a34a'
                                 }}
+                                onClick={() => setShowViability((prev) => !prev)}
                             >
-                                Aprovar Proposta
+                                Ver como o projeto se paga
                             </button>
+                            {showViability && (
+                                <div
+                                    style={{
+                                        marginTop: '1.75rem',
+                                        padding: '1.5rem',
+                                        background: 'rgba(15, 23, 42, 0.95)',
+                                        borderRadius: '1rem',
+                                        border: '1px solid rgba(148, 163, 184, 0.5)',
+                                        color: '#e5e7eb',
+                                        fontSize: '0.9rem'
+                                    }}
+                                >
+                                    <div style={{ fontWeight: 700, marginBottom: '0.5rem' }}>
+                                        Viabilidade financeira do projeto
+                                    </div>
+                                    <p style={{ marginBottom: '0.75rem', color: '#cbd5f5' }}>
+                                        Considerando {leads} leads/mês, ticket médio de {currency.format(ticket)} e uma conversão atual de {currentConv}% (benchmark saudável: 20–35%),
+                                        um aumento conservador de 50% na taxa de conversão com IA gera:
+                                    </p>
+                                    <ul style={{ marginLeft: '1.25rem', marginBottom: '0.75rem', listStyle: 'disc' }}>
+                                        <li>Receita atual estimada: {currency.format(currentRevenue)}/mês</li>
+                                        <li>Receita projetada com IA: {currency.format(projectedRevenue)}/mês</li>
+                                        <li>Receita extra com IA: {currency.format(extraRevenue)}/mês</li>
+                                        <li>
+                                            Mesmo descontando a recorrência de {currency.format(monthlyFee)}, sobra cerca de{' '}
+                                            <span style={{ fontWeight: 600 }}>{currency.format(netAfterFee)}</span> de ganho líquido por mês.
+                                        </li>
+                                    </ul>
+                                    <p style={{ marginBottom: 0, color: '#9ca3af' }}>
+                                        Isso significa que o investimento inicial de {currency.format(setupCost)} tende a se pagar em aproximadamente{' '}
+                                        <span style={{ fontWeight: 600 }}>{paybackDays} dias</span>, sem nem considerar a economia potencial de uma atendente
+                                        comercial em torno de {currency.format(monthlyFee)} por mês.
+                                    </p>
+                                </div>
+                            )}
                             <p style={{ textAlign: 'center', color: '#52525b', fontSize: '0.8rem', marginTop: '1rem' }}>
                                 *Taxa de juros aplicada ao contratante.
                             </p>
