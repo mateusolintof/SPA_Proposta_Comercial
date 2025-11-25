@@ -157,7 +157,7 @@ const Investment = () => {
                     style={{
                         position: 'fixed',
                         inset: 0,
-                        background: 'rgba(0,0,0,0.6)',
+                        background: 'rgba(0,0,0,0.65)',
                         zIndex: 60,
                         display: 'flex',
                         alignItems: 'center',
@@ -168,27 +168,28 @@ const Investment = () => {
                     <div
                         style={{
                             width: 'min(520px, 100%)',
-                            background: '#0b1221',
-                            borderRadius: '1.25rem',
-                            border: '1px solid rgba(255,255,255,0.12)',
-                            boxShadow: '0 25px 70px rgba(0,0,0,0.65)',
+                            background: '#f7f7f3',
+                            borderRadius: '1.5rem',
+                            border: '1px solid rgba(0,0,0,0.05)',
+                            boxShadow: '0 25px 70px rgba(0,0,0,0.45)',
                             padding: '1.75rem',
-                            color: '#e5e7eb',
+                            color: '#1f2937',
                             position: 'relative',
                             maxHeight: '90vh',
                             overflowY: 'auto'
                         }}
                     >
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
-                            <div style={{ display: 'inline-flex', padding: '0.35rem 0.85rem', background: 'rgba(16, 185, 129, 0.12)', borderRadius: '999px', border: '1px solid rgba(16,185,129,0.25)', color: '#10b981', fontSize: '0.8rem', fontWeight: 700, letterSpacing: '0.05em' }}>
+                            <div style={{ display: 'inline-flex', padding: '0.35rem 0.85rem', background: 'rgba(1, 49, 23, 0.08)', borderRadius: '999px', border: '1px solid rgba(1,49,23,0.18)', color: '#013117', fontSize: '0.8rem', fontWeight: 700, letterSpacing: '0.05em' }}>
                                 Viabilidade
                             </div>
                             <button
                                 onClick={() => setShowViability(false)}
+                                aria-label="Fechar"
                                 style={{
                                     background: 'transparent',
-                                    color: '#9ca3af',
-                                    border: '1px solid rgba(148,163,184,0.4)',
+                                    color: '#6b7280',
+                                    border: '1px solid rgba(0,0,0,0.08)',
                                     borderRadius: '999px',
                                     padding: '0.35rem 0.9rem',
                                     fontWeight: 600,
@@ -199,58 +200,40 @@ const Investment = () => {
                             </button>
                         </div>
 
-                        <h3 style={{ color: 'white', marginBottom: '0.5rem', fontSize: '1.5rem' }}>Veja como o projeto se paga</h3>
-                        <p style={{ color: '#cbd5f5', marginBottom: '1.25rem', lineHeight: 1.5 }}>
+                        <h3 style={{ color: '#013117', marginBottom: '0.5rem', fontSize: '1.6rem' }}>Veja como o projeto se paga</h3>
+                        <p style={{ color: '#374151', marginBottom: '1.25rem', lineHeight: 1.6 }}>
                             Com {leads} leads/mês, ticket médio de {currency.format(ticket)} e conversão atual de {currentConv}% (benchmark saudável),
                             um aumento conservador de 50% na conversão com IA gera ganhos imediatos.
                         </p>
 
                         <div style={{ display: 'grid', gap: '0.85rem', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', marginBottom: '1.25rem' }}>
-                            <div style={{ padding: '0.9rem', borderRadius: '0.85rem', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>
-                                <div style={{ fontSize: '0.85rem', color: '#9ca3af' }}>Receita Atual</div>
-                                <div style={{ fontWeight: 700, color: 'white', fontSize: '1.1rem' }}>{currency.format(currentRevenue)}</div>
+                            <div style={{ padding: '0.9rem', borderRadius: '0.85rem', background: '#ffffff', border: '1px solid rgba(0,0,0,0.04)', boxShadow: '0 4px 10px rgba(0,0,0,0.04)' }}>
+                                <div style={{ fontSize: '0.85rem', color: '#6b7280' }}>Receita Atual</div>
+                                <div style={{ fontWeight: 700, color: '#0f172a', fontSize: '1.1rem' }}>{currency.format(currentRevenue)}</div>
                             </div>
-                            <div style={{ padding: '0.9rem', borderRadius: '0.85rem', background: 'rgba(16,185,129,0.08)', border: '1px solid rgba(16,185,129,0.15)' }}>
-                                <div style={{ fontSize: '0.85rem', color: '#10b981' }}>Receita com IA (+50%)</div>
-                                <div style={{ fontWeight: 800, color: '#10b981', fontSize: '1.1rem' }}>{currency.format(projectedRevenue)}</div>
+                            <div style={{ padding: '0.9rem', borderRadius: '0.85rem', background: '#eef7ee', border: '1px solid rgba(1,49,23,0.12)' }}>
+                                <div style={{ fontSize: '0.85rem', color: '#013117' }}>Receita com IA (+50%)</div>
+                                <div style={{ fontWeight: 800, color: '#013117', fontSize: '1.1rem' }}>{currency.format(projectedRevenue)}</div>
                             </div>
-                            <div style={{ padding: '0.9rem', borderRadius: '0.85rem', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>
-                                <div style={{ fontSize: '0.85rem', color: '#9ca3af' }}>Receita Extra</div>
-                                <div style={{ fontWeight: 700, color: 'white', fontSize: '1.1rem' }}>{currency.format(extraRevenue)}</div>
+                            <div style={{ padding: '0.9rem', borderRadius: '0.85rem', background: '#ffffff', border: '1px solid rgba(0,0,0,0.04)', boxShadow: '0 4px 10px rgba(0,0,0,0.04)' }}>
+                                <div style={{ fontSize: '0.85rem', color: '#6b7280' }}>Receita Extra</div>
+                                <div style={{ fontWeight: 700, color: '#0f172a', fontSize: '1.1rem' }}>{currency.format(extraRevenue)}</div>
                             </div>
-                            <div style={{ padding: '0.9rem', borderRadius: '0.85rem', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>
-                                <div style={{ fontSize: '0.85rem', color: '#9ca3af' }}>Payback Estimado</div>
-                                <div style={{ fontWeight: 700, color: 'white', fontSize: '1.1rem' }}>{paybackDays} dias</div>
+                            <div style={{ padding: '0.9rem', borderRadius: '0.85rem', background: '#ffffff', border: '1px solid rgba(0,0,0,0.04)', boxShadow: '0 4px 10px rgba(0,0,0,0.04)' }}>
+                                <div style={{ fontSize: '0.85rem', color: '#6b7280' }}>Payback Estimado</div>
+                                <div style={{ fontWeight: 700, color: '#0f172a', fontSize: '1.1rem' }}>{paybackDays} dias</div>
                             </div>
-                            <div style={{ padding: '0.9rem', borderRadius: '0.85rem', background: 'rgba(16,185,129,0.08)', border: '1px solid rgba(16,185,129,0.15)' }}>
-                                <div style={{ fontSize: '0.85rem', color: '#10b981' }}>Líquido Após Mensalidade</div>
-                                <div style={{ fontWeight: 800, color: '#10b981', fontSize: '1.1rem' }}>{currency.format(netAfterFee)}</div>
+                            <div style={{ padding: '0.9rem', borderRadius: '0.85rem', background: '#eef7ee', border: '1px solid rgba(1,49,23,0.12)' }}>
+                                <div style={{ fontSize: '0.85rem', color: '#013117' }}>Líquido Após Mensalidade</div>
+                                <div style={{ fontWeight: 800, color: '#013117', fontSize: '1.1rem' }}>{currency.format(netAfterFee)}</div>
                             </div>
                         </div>
 
-                        <div style={{ color: '#9ca3af', fontSize: '0.95rem', lineHeight: 1.6, marginBottom: '1.25rem' }}>
+                        <div style={{ color: '#374151', fontSize: '0.95rem', lineHeight: 1.6 }}>
                             Mesmo após investir {currency.format(setupCost)} e pagar a mensalidade de {currency.format(monthlyFee)}, o ganho líquido
                             mensal projeta {currency.format(netAfterFee)} apenas pelo aumento de conversão — sem contar a economia de substituir uma
                             atendente comercial de {currency.format(monthlyFee)}.
                         </div>
-
-                        <button
-                            onClick={() => setShowViability(false)}
-                            style={{
-                                width: '100%',
-                                justifyContent: 'center',
-                                height: '3rem',
-                                fontSize: '0.95rem',
-                                fontWeight: 700,
-                                borderRadius: '0.9rem',
-                                background: 'rgba(255,255,255,0.06)',
-                                color: '#e5e7eb',
-                                border: '1px solid rgba(148,163,184,0.5)',
-                                cursor: 'pointer'
-                            }}
-                        >
-                            Voltar
-                        </button>
                     </div>
                 </div>
             )}
