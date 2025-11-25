@@ -83,6 +83,13 @@ const Investment = () => {
                                     <span style={{ fontSize: '3.5rem', fontWeight: 800, color: 'white', fontFamily: 'monospace', letterSpacing: '-0.05em' }}>R$ 5k</span>
                                 </div>
                                 <div style={{ color: '#a1a1aa', fontSize: '0.9rem' }}>Implementação completa</div>
+                                <div style={{ color: '#71717a', fontSize: '0.85rem', marginTop: '0.75rem' }}>
+                                    Condições de pagamento:
+                                    <ul style={{ marginTop: '0.5rem', paddingLeft: '1.25rem', marginBottom: 0 }}>
+                                        <li>50% à vista e 50% na entrega do projeto</li>
+                                        <li>Parcelamento em até 12x no cartão de crédito*</li>
+                                    </ul>
+                                </div>
                             </div>
 
                             <div style={{ marginBottom: '2.5rem', padding: '1.5rem', background: 'rgba(255,255,255,0.03)', borderRadius: '1rem', border: '1px solid rgba(255,255,255,0.05)' }}>
@@ -99,7 +106,7 @@ const Investment = () => {
                                 Aprovar Proposta
                             </button>
                             <p style={{ textAlign: 'center', color: '#52525b', fontSize: '0.8rem', marginTop: '1rem' }}>
-                                Pagamento facilitado em até 3x no cartão.
+                                *Taxa de juros aplicada ao contratante.
                             </p>
                         </div>
                     </div>
