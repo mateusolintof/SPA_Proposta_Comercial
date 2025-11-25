@@ -210,11 +210,20 @@ const Investment = () => {
                         </div>
 
                         <h3 style={{ color: '#013117', marginBottom: '0.5rem', fontSize: '1.6rem' }}>Veja como o projeto se paga</h3>
-                        <p style={{ color: '#374151', marginBottom: '0.5rem', lineHeight: 1.5 }}>
-                            Hoje: {leads} leads/mês · ticket {currency.format(ticket)} · conversão {currentConv}% → {currency.format(currentRevenue)}/mês.
+                        <p style={{ color: '#374151', marginBottom: '0.25rem', lineHeight: 1.5 }}>
+                            <strong>Premissas:</strong>
+                            <br />
+                            Hoje: {leads} leads/mês
+                            <br />
+                            Ticket médio: {currency.format(ticket)}
+                            <br />
+                            Conversão: {currentConv}%
+                            <br />
+                            <br />
+                            Com IA: + 50% de aumento na taxa de conversão.
                         </p>
-                        <p style={{ color: '#374151', marginBottom: '1rem', lineHeight: 1.5 }}>
-                            Com IA: +50% na conversão → {currency.format(projectedRevenue)}/mês.
+                        <p style={{ color: '#4b5563', marginBottom: '1rem', lineHeight: 1.5, fontSize: '0.8rem', fontStyle: 'italic' }}>
+                            Estimativa mercado
                         </p>
 
                         <div style={{ display: 'grid', gap: '0.85rem', marginBottom: '1.25rem' }}>
